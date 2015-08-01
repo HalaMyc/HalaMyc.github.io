@@ -4,23 +4,29 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Blog搭建完成啦！ | HalaMyc</title>
+    <title>AFNetworking使用时text/html错误 | HalaMyc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="MouYacheng">
     
 
     
-    <meta name="description" content="这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西">
+    <meta name="description" content="在使用AFNetworking时可能会碰到以下错误
+错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript
+解决办法在导入的AFNetworking文件夹中，找到AFURLResponseSerialization.m,打开该文件，在第222行左右">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog搭建完成啦！">
-<meta property="og:url" content="http://www.halamyc.me/2015/07/21/个人博客搭建完成啦！/index.html">
+<meta property="og:title" content="AFNetworking使用时text/html错误">
+<meta property="og:url" content="http://www.halamyc.me/2015/08/01/AFNetworking使用时text-html错误/index.html">
 <meta property="og:site_name" content="HalaMyc">
-<meta property="og:description" content="这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西">
-<meta property="og:updated_time" content="2015-07-21T10:41:56.000Z">
+<meta property="og:description" content="在使用AFNetworking时可能会碰到以下错误
+错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript
+解决办法在导入的AFNetworking文件夹中，找到AFURLResponseSerialization.m,打开该文件，在第222行左右">
+<meta property="og:updated_time" content="2015-08-01T11:39:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog搭建完成啦！">
-<meta name="twitter:description" content="这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西">
+<meta name="twitter:title" content="AFNetworking使用时text/html错误">
+<meta name="twitter:description" content="在使用AFNetworking时可能会碰到以下错误
+错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript
+解决办法在导入的AFNetworking文件夹中，找到AFURLResponseSerialization.m,打开该文件，在第222行左右">
 
     
     <link rel="alternative" href="/atom.xml" title="HalaMyc" type="application/atom+xml">
@@ -80,14 +86,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/21/个人博客搭建完成啦！/" title="Blog搭建完成啦！" itemprop="url">Blog搭建完成啦！</a>
+      <a href="/2015/08/01/AFNetworking使用时text-html错误/" title="AFNetworking使用时text/html错误" itemprop="url">AFNetworking使用时text/html错误</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="MouYacheng" target="_blank" itemprop="author">MouYacheng</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-21T04:10:28.000Z" itemprop="datePublished"> 發表於 2015-07-21</time>
+    <time datetime="2015-08-01T11:33:22.000Z" itemprop="datePublished"> 發表於 2015-08-01</time>
     
   </p>
 </header>
@@ -96,11 +102,16 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法"><span class="toc-number">1.</span> <span class="toc-text">解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#另一种方法"><span class="toc-number">1.1.</span> <span class="toc-text">另一种方法</span></a></li></ol></li></ol>
 		
 		</div>
 		
-		<p>这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西</p>
+		<p>在使用AFNetworking时可能会碰到以下错误</p>
+<p>错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript</p>
+<h5 id="解决办法">解决办法</h5><p>在导入的AFNetworking文件夹中，找到<code>AFURLResponseSerialization.m</code>,打开该文件，在<strong>第222行</strong>左右（具体以实际为准），有以下代码：<br><code>self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;, nil];</code><br>在这一行代码中添加text/html,就可以解决这个问题。代码如下：<br><code>self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;,@&quot;text/html&quot;, nil];</code></p>
+<p>以上方法解决了我的问题，但是在解决问题时发现其他人有另一种解决方法：</p>
+<h6 id="另一种方法">另一种方法</h6><p>在使用AFNetworking时，加入如下代码:<br><code>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+manager.responseSerializer = [AFHTTPResponseSerializer serializer];</code><br>这种方法我在使用时可以正常运行但是不是正确解析json数据，大家可以两个都试一试。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -113,7 +124,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.halamyc.me/2015/07/21/个人博客搭建完成啦！/" data-title="Blog搭建完成啦！ | HalaMyc" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.halamyc.me/2015/08/01/AFNetworking使用时text-html错误/" data-title="AFNetworking使用时text/html错误 | HalaMyc" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -127,13 +138,21 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2015/08/01/AFNetworking使用时text-html错误/" title="AFNetworking使用时text/html错误">
+ <a href="/2015/08/01/Swift-AFNetworking获取网络数据/" title="Swift+AFNetworking获取网络数据">
   <strong>上一篇：</strong><br/>
   <span>
-  AFNetworking使用时text/html错误</span>
+  Swift+AFNetworking获取网络数据</span>
 </a>
 </div>
 
+
+<div class="next">
+<a href="/2015/07/21/个人博客搭建完成啦！/"  title="Blog搭建完成啦！">
+ <strong>下一篇：</strong><br/> 
+ <span>Blog搭建完成啦！
+</span>
+</a>
+</div>
 
 </nav>
 
@@ -145,7 +164,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决办法"><span class="toc-number">1.</span> <span class="toc-text">解决办法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#另一种方法"><span class="toc-number">1.1.</span> <span class="toc-text">另一种方法</span></a></li></ol></li></ol>
  
   </div>
 

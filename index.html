@@ -81,6 +81,112 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2015/08/01/Swift-AFNetworking获取网络数据/" title="Swift+AFNetworking获取网络数据" itemprop="url">Swift+AFNetworking获取网络数据</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="MouYacheng" target="_blank" itemprop="author">MouYacheng</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-01T11:36:35.000Z" itemprop="datePublished"> 發表於 2015-08-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言<br>AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking的github</a><br>通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据</p>
+<h5 id="第一步，使用CocoaPods导入AFNetworking">第一步，使用CocoaPods导入AFNetworking</h5><p>CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods安装和使用教程</a>,文章中就使用了AFNetworking，可见这个库的重要程度。</p>
+<h5 id="第二步，新建Swift与OC混编所需要的桥接文件">第二步，新建Swift与OC混编所需要的桥接文件</h5><h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/08/01/AFNetworking使用时text-html错误/" title="AFNetworking使用时text/html错误" itemprop="url">AFNetworking使用时text/html错误</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="MouYacheng" target="_blank" itemprop="author">MouYacheng</a>
+		
+  <p class="article-time">
+    <time datetime="2015-08-01T11:33:22.000Z" itemprop="datePublished"> 發表於 2015-08-01</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>在使用AFNetworking时可能会碰到以下错误</p>
+<p>错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript</p>
+<h5 id="解决办法">解决办法</h5><p>在导入的AFNetworking文件夹中，找到<code>AFURLResponseSerialization.m</code>,打开该文件，在<strong>第222行</strong>左右（具体以实际为准），有以下代码：<br><code>self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;, nil];</code><br>在这一行代码中添加text/html,就可以解决这个问题。代码如下：<br><code>self.acceptableContentTypes = [NSSet setWithObjects:@&quot;application/json&quot;, @&quot;text/json&quot;, @&quot;text/javascript&quot;,@&quot;text/html&quot;, nil];</code></p>
+<p>以上方法解决了我的问题，但是在解决问题时发现其他人有另一种解决方法：</p>
+<h6 id="另一种方法">另一种方法</h6><p>在使用AFNetworking时，加入如下代码:<br><code>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+manager.responseSerializer = [AFHTTPResponseSerializer serializer];</code><br>这种方法我在使用时可以正常运行但是不是正确解析json数据，大家可以两个都试一试。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2015/07/21/个人博客搭建完成啦！/" title="Blog搭建完成啦！" itemprop="url">Blog搭建完成啦！</a>
   </h1>
   <p class="article-author">By

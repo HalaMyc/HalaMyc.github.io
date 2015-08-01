@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Blog搭建完成啦！ | HalaMyc</title>
+    <title>Swift+AFNetworking获取网络数据 | HalaMyc</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="MouYacheng">
     
 
     
-    <meta name="description" content="这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西">
+    <meta name="description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
+第一步，使用Co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog搭建完成啦！">
-<meta property="og:url" content="http://www.halamyc.me/2015/07/21/个人博客搭建完成啦！/index.html">
+<meta property="og:title" content="Swift+AFNetworking获取网络数据">
+<meta property="og:url" content="http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/index.html">
 <meta property="og:site_name" content="HalaMyc">
-<meta property="og:description" content="这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西">
-<meta property="og:updated_time" content="2015-07-21T10:41:56.000Z">
+<meta property="og:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
+第一步，使用Co">
+<meta property="og:updated_time" content="2015-08-01T11:40:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Blog搭建完成啦！">
-<meta name="twitter:description" content="这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西">
+<meta name="twitter:title" content="Swift+AFNetworking获取网络数据">
+<meta name="twitter:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
+第一步，使用Co">
 
     
     <link rel="alternative" href="/atom.xml" title="HalaMyc" type="application/atom+xml">
@@ -80,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/07/21/个人博客搭建完成啦！/" title="Blog搭建完成啦！" itemprop="url">Blog搭建完成啦！</a>
+      <a href="/2015/08/01/Swift-AFNetworking获取网络数据/" title="Swift+AFNetworking获取网络数据" itemprop="url">Swift+AFNetworking获取网络数据</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="MouYacheng" target="_blank" itemprop="author">MouYacheng</a>
 		
   <p class="article-time">
-    <time datetime="2015-07-21T04:10:28.000Z" itemprop="datePublished"> 發表於 2015-07-21</time>
+    <time datetime="2015-08-01T11:36:35.000Z" itemprop="datePublished"> 發表於 2015-08-01</time>
     
   </p>
 </header>
@@ -96,12 +99,13 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目錄</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#第一步，使用CocoaPods导入AFNetworking"><span class="toc-number">1.</span> <span class="toc-text">第一步，使用CocoaPods导入AFNetworking</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第二步，新建Swift与OC混编所需要的桥接文件"><span class="toc-number">2.</span> <span class="toc-text">第二步，新建Swift与OC混编所需要的桥接文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第三步，在代码中使用AFNetworking"><span class="toc-number">3.</span> <span class="toc-text">第三步，在代码中使用AFNetworking</span></a></li></ol>
 		
 		</div>
 		
-		<p>这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西</p>
-  
+		<p>苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言<br>AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking的github</a><br>通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据</p>
+<h5 id="第一步，使用CocoaPods导入AFNetworking">第一步，使用CocoaPods导入AFNetworking</h5><p>CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods安装和使用教程</a>,文章中就使用了AFNetworking，可见这个库的重要程度。</p>
+<h5 id="第二步，新建Swift与OC混编所需要的桥接文件">第二步，新建Swift与OC混编所需要的桥接文件</h5><h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -113,7 +117,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://www.halamyc.me/2015/07/21/个人博客搭建完成啦！/" data-title="Blog搭建完成啦！ | HalaMyc" data-tsina="null" class="share clearfix">
+	  <div data-url="http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/" data-title="Swift+AFNetworking获取网络数据 | HalaMyc" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,14 +130,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2015/08/01/AFNetworking使用时text-html错误/" title="AFNetworking使用时text/html错误">
-  <strong>上一篇：</strong><br/>
-  <span>
-  AFNetworking使用时text/html错误</span>
+
+<div class="next">
+<a href="/2015/08/01/AFNetworking使用时text-html错误/"  title="AFNetworking使用时text/html错误">
+ <strong>下一篇：</strong><br/> 
+ <span>AFNetworking使用时text/html错误
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -145,7 +149,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目錄</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#第一步，使用CocoaPods导入AFNetworking"><span class="toc-number">1.</span> <span class="toc-text">第一步，使用CocoaPods导入AFNetworking</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第二步，新建Swift与OC混编所需要的桥接文件"><span class="toc-number">2.</span> <span class="toc-text">第二步，新建Swift与OC混编所需要的桥接文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#第三步，在代码中使用AFNetworking"><span class="toc-number">3.</span> <span class="toc-text">第三步，在代码中使用AFNetworking</span></a></li></ol>
  
   </div>
 
