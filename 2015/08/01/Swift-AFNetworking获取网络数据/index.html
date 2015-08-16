@@ -21,7 +21,7 @@
 第一步，使用Co">
 <meta property="og:image" content="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png">
 <meta property="og:image" content="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png">
-<meta property="og:updated_time" content="2015-08-16T04:20:07.000Z">
+<meta property="og:updated_time" content="2015-08-16T05:03:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift+AFNetworking获取网络数据">
 <meta name="twitter:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
@@ -109,10 +109,11 @@
 <h5 id="第一步，使用CocoaPods导入AFNetworking">第一步，使用CocoaPods导入AFNetworking</h5><p>CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods安装和使用教程</a>,文章中就使用了AFNetworking，可见这个库的重要程度。</p>
 <h5 id="第二步，新建Swift与OC混编所需要的桥接文件">第二步，新建Swift与OC混编所需要的桥接文件</h5><p><img src="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png" alt="QQ20150816-2@2x.png" title="QQ20150816-2@2x.png"><br>创建一个.h文件，命名随便，我这里命名为<code>Bridging-header.h</code><br>接下来需要在bulid settings中设置桥接文件<br><img src="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png" alt="QQ20150816-4@2x.png" title="QQ20150816-4@2x.png"><br>路径为项目名称/文件名<br>如果觉得麻烦的话，在项目中创建一个OC文件，xcode为自动帮你生成一个桥接文件并设置好路径<br>最后，打开桥接文件，在文件中导入AFNetworking就行了</p>
 <p><code>#import &lt;AFNetworking/AFNetworking.h&gt;</code></p>
-<h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5><blockquote>
-<p>let manager = AFHTTPRequestOperationManager()<br>     manager.GET(“your api”, parameters: [], success: { (operation:AFHTTPRequestOperation!, response: AnyObject!) -&gt; Void in<br>            }) { (operation: AFHTTPRequestOperation!, error: NSError!) -&gt; Void in<br>       }</p>
-</blockquote>
-  
+<h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5><pre><code><span class="keyword">let</span> manager = AFHTTPRequestOperationManager()
+ manager.GET<span class="function"><span class="params">(<span class="string">"your api"</span>, parameters: [], success: { (operation:AFHTTPRequestOperation!, response: AnyObject!) -&gt; Void <span class="keyword">in</span>
+        })</span> { <span class="params">(operation: AFHTTPRequestOperation!, error: NSError!)</span> -&gt;</span> Void <span class="keyword">in</span>
+   }
+</code></pre>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
