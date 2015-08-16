@@ -146,6 +146,9 @@
     <div class="article-content">
         
         <p>在使用AFNetworking时可能会碰到以下错误</p>
+<blockquote>
+<p>NSLocalizedDescription=Request failed: unacceptable content-type: text/html}</p>
+</blockquote>
 <p>错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript</p>
 <h5 id="解决办法">解决办法</h5><p>在导入的AFNetworking文件夹中，找到<code>AFURLResponseSerialization.m</code>,打开该文件，在<strong>第222行</strong>左右（具体以实际为准），有以下代码：</p>
 <blockquote>
@@ -158,8 +161,9 @@
 <p>以上方法解决了我的问题，但是在解决问题时发现其他人有另一种解决方法：</p>
 <h6 id="另一种方法">另一种方法</h6><p>在使用AFNetworking时，加入如下代码:</p>
 <blockquote>
-<p>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];<br>manager.responseSerializer = [AFHTTPResponseSerializer serializer];<br>这种方法我在使用时可以正常运行但是不是正确解析json数据，大家可以两个都试一试。</p>
+<p>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];<br>manager.responseSerializer = [AFHTTPResponseSerializer serializer];</p>
 </blockquote>
+<p>这种方法我在使用时可以正常运行但是不是正确解析json数据，大家可以两个都试一试。</p>
 
         
         
