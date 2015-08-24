@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="theme-next use-motion ">
+<html class="theme-next use-motion theme-next-mist">
 <head>
   
 
@@ -48,7 +48,7 @@
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
-    scheme: '',
+    scheme: 'Mist',
     sidebar: 'post'
   };
 </script>
@@ -192,59 +192,18 @@
 
       
         
-          <span itemprop="articleBody"><p>iOS开发中，经常会碰到键盘弹出以后，挡住输入框，导致无法看见自己输入了什么的问题，百度的解决办法很多，但是很多并不好用，以下是我的解决思路：</p>
-<hr>
-<p>由于iOS8之后支持第三方键盘，所以键盘的高度不能固定，所以需要监听键盘弹出通知并获取当前键盘高度，经过我的测试，TextField的<em>textFieldDidBeginEditing</em>方法会早于键盘弹出的通知执行，所以解决问题的关键代码需要放在通知的方法中。</p>
-<p>由于刚好解决这个问题的时候项目使用的时Swift语言，所以以下代码全部都是使用Swift，需要使用OC的用OC重写一遍就行。</p>
-<hr>
-<p>在<em>viewWillAppear</em>和<em>viewWillDisappear</em>中注册通知，监听键盘弹出和消失</p>
-<pre><code><span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewWillAppear</span><span class="params">(animated: Bool)</span></span> {
-    <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>, selector: <span class="string">"keyboardWillShow:"</span>, name: <span class="type">UIKeyboardWillShowNotification</span>, object: <span class="literal">nil</span>)
-    <span class="type">NSNotificationCenter</span>.defaultCenter().addObserver(<span class="keyword">self</span>, selector: <span class="string">"keyboardWillHidden:"</span>, name: <span class="type">UIKeyboardWillHideNotification</span>, object: <span class="literal">nil</span>)
-}
-<span class="keyword">override</span> <span class="func"><span class="keyword">func</span> <span class="title">viewWillDisappear</span><span class="params">(animated: Bool)</span></span> {
-    <span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(<span class="keyword">self</span>, name: <span class="type">UIKeyboardWillShowNotification</span>, object: <span class="literal">nil</span>)
-    <span class="type">NSNotificationCenter</span>.defaultCenter().removeObserver(<span class="keyword">self</span>, name: <span class="type">UIKeyboardWillHideNotification</span>, object: <span class="literal">nil</span>)
-}
-</code></pre><p>将控制器设置为输入框TextField的delegate，并在完成一下三个代理方法：</p>
-<pre><code><span class="func"><span class="keyword">func</span> <span class="title">textFieldDidBeginEditing</span><span class="params">(textField: UITextField)</span></span> {
-    editTextField = textField
-}
+          <span itemprop="articleBody">
+            
+            iOS开发中，经常会碰到键盘弹出以后，挡住输入框，导致无法看见自己输入了什么的问题，百度的解决办法很多，但是很多并不好用，以下是我的解决思路：
 
-<span class="func"><span class="keyword">func</span> <span class="title">textFieldShouldReturn</span><span class="params">(textField: UITextField)</span></span> -&gt; <span class="type">Bool</span> {
-    textField.resignFirstResponder()
-    <span class="keyword">return</span> <span class="literal">true</span>
-}
-
-<span class="func"><span class="keyword">func</span> <span class="title">textFieldDidEndEditing</span><span class="params">(textField: UITextField)</span></span> {
-    editTextField = <span class="literal">nil</span>
-}
-</code></pre><p>在键盘弹出时，textField的textFieldDidBeginEditing方法会比键盘弹出的通知更早执行，所以创建一个实例变量获取到当前正在输入的TextField。</p>
-<p>写两个方法keyboardWillShow:和keyboardWillHidden:分别接收键盘弹出和键盘隐藏的通知。</p>
-<pre><code><span class="func"><span class="keyword">func</span> <span class="title">keyboardWillShow</span><span class="params">(aNotification: NSNotification)</span></span>{
-    <span class="keyword">let</span> userInfo: <span class="type">NSDictionary</span>? = aNotification.userInfo
-    <span class="keyword">let</span> aValue: <span class="type">NSValue</span>? = userInfo?.objectForKey(<span class="type">UIKeyboardFrameEndUserInfoKey</span>) <span class="keyword">as</span>? <span class="type">NSValue</span>
-    <span class="keyword">let</span> keyboardRect = aValue?.<span class="type">CGRectValue</span>()
-    keyboardHeight = keyboardRect?.size.height
-    <span class="keyword">var</span> frame = editTextField!.frame
-    <span class="keyword">var</span> offset = frame.origin.y + <span class="number">32</span> - (<span class="keyword">self</span>.view.frame.size.height - keyboardHeight!)
-    <span class="type">UIView</span>.animateWithDuration(<span class="number">0.3</span>, animations: { () -&gt; <span class="type">Void</span> <span class="keyword">in</span>
-        <span class="keyword">if</span> offset &gt; <span class="number">0</span>{
-            <span class="keyword">self</span>.view.frame = <span class="type">CGRectMake</span>(<span class="number">0</span>, -offset, <span class="type">SCREEN_WIDTH</span>, <span class="type">SCREEN_HEIGHT</span>)
-        }
-    })
-}
-
-<span class="func"><span class="keyword">func</span> <span class="title">keyboardWillHidden</span><span class="params">(notification: NSNotification)</span></span>{
-    <span class="type">UIView</span>.animateWithDuration(<span class="number">0.3</span>, animations: { () -&gt; <span class="type">Void</span> <span class="keyword">in</span>
-        <span class="keyword">self</span>.view.frame = <span class="type">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="type">SCREEN_WIDTH</span>, <span class="type">SCREEN_HEIGHT</span>)
-    })
-}
-</code></pre><p>将视图向上移动，键盘就不会挡住输入框了，使用动画会使整个过程更加流畅，这里需要注意的是，如果你的TextField的父视图不是self.view，以上代码可能不会如你所愿的执行，这里需要将keyboardWillShow中获取editTextField的方法改为</p>
-<pre><code><span class="variable"><span class="keyword">var</span> frame</span> = editTextField?.convertRect(editTextField?.frame, toView: self.view)
-</code></pre><hr>
-<p>使用这个方法可以一定程度上解决问题，但是这个方法的缺点在于，如果控制器有导航栏的话，导航栏会被一起上移，所以更好的解决办法是通过UIScrollView的上下滚动来解决这个问题，方法差不多，大家如果有需求可以试试</p>
-</span>
+由于iOS8之后支持第三方键盘，所以键盘的高度不能固定，所以需要监听键盘弹出通知并获取当前键盘高度，经过我的测试，TextField的textFieldD
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/16/iOS开发键盘挡住输入框的解决方案/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -312,18 +271,16 @@
 
       
         
-          <span itemprop="articleBody"><p>苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言<br>AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking的github</a><br>通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据</p>
-<h5 id="第一步，使用CocoaPods导入AFNetworking">第一步，使用CocoaPods导入AFNetworking</h5><hr>
-<p>CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods安装和使用教程</a>,文章中就使用了AFNetworking，可见这个库的重要程度。</p>
-<h5 id="第二步，新建Swift与OC混编所需要的桥接文件">第二步，新建Swift与OC混编所需要的桥接文件</h5><hr>
-<p><img src="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png" alt="QQ20150816-2@2x.png" title="QQ20150816-2@2x.png"><br>创建一个.h文件，命名随便，我这里命名为<code>Bridging-header.h</code><br>接下来需要在bulid settings中设置桥接文件<br><img src="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png" alt="QQ20150816-4@2x.png" title="QQ20150816-4@2x.png"><br>路径为项目名称/文件名<br>如果觉得麻烦的话，在项目中创建一个OC文件，xcode为自动帮你生成一个桥接文件并设置好路径<br>最后，打开桥接文件，在文件中导入AFNetworking就行了</p>
-<p><code>#import &lt;AFNetworking/AFNetworking.h&gt;</code></p>
-<h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5><hr>
-<pre><code><span class="keyword">let</span> manager = AFHTTPRequestOperationManager()
- manager.GET<span class="function"><span class="params">(<span class="string">"your api"</span>, parameters: [], success: { (operation:AFHTTPRequestOperation!, response: AnyObject!) -&gt; Void <span class="keyword">in</span>
-        })</span> { <span class="params">(operation: AFHTTPRequestOperation!, error: NSError!)</span> -&gt;</span> Void <span class="keyword">in</span>
-   }
-</code></pre></span>
+          <span itemprop="articleBody">
+            
+            苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的githu
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/01/Swift-AFNetworking获取网络数据/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -391,21 +348,18 @@
 
       
         
-          <span itemprop="articleBody"><p>在使用AFNetworking时可能会碰到以下错误</p>
-<pre><code>NSLocalizedDescription=Request failed: unacceptable content-<span class="class"><span class="keyword">type</span>: <span class="title">text</span>/<span class="title">html</span>}</span>
-</code></pre><p>错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript</p>
-<h5 id="解决办法">解决办法</h5><hr>
-<p>在导入的AFNetworking文件夹中，找到<code>AFURLResponseSerialization.m</code>,打开该文件，在<strong>第222行</strong>左右（具体以实际为准），有以下代码：</p>
-<pre><code><span class="keyword">self</span><span class="variable">.acceptableContentTypes</span> = [<span class="built_in">NSSet</span> setWithObjects:<span class="string">@"application/json"</span>, <span class="string">@"text/json"</span>, <span class="string">@"text/javascript"</span>, <span class="literal">nil</span>];
-</code></pre><p>在这一行代码中添加text/html,就可以解决这个问题。代码如下：</p>
-<pre><code>self.acceptableContentTypes = [NSSet setWithObjects:<span class="variable">@"</span>application/json<span class="string">", @"</span><span class="keyword">text</span>/json<span class="string">", @"</span><span class="keyword">text</span>/javascript<span class="string">",@"</span><span class="keyword">text</span>/html<span class="string">", nil];</span>
-</code></pre><p>以上方法解决了我的问题，但是在解决问题时发现其他人有另一种解决方法：</p>
-<h5 id="另一种方法">另一种方法</h5><hr>
-<p>在使用AFNetworking时，加入如下代码:</p>
-<pre><code>AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager]<span class="comment">;</span>
-manager.responseSerializer = [AFHTTPResponseSerializer serializer]<span class="comment">;</span>
-</code></pre><p>这种方法我在使用时可以正常运行但是不是正确解析json数据，大家可以两个都试一试。</p>
-</span>
+          <span itemprop="articleBody">
+            
+            在使用AFNetworking时可能会碰到以下错误
+NSLocalizedDescription=Request failed: unacceptable content-type: text/html}
+错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestO
+            ...
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/01/AFNetworking使用时text-html错误/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -473,8 +427,17 @@ manager.responseSerializer = [AFHTTPResponseSerializer serializer]<span class="c
 
       
         
-          <span itemprop="articleBody"><p>这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西</p>
-</span>
+          <span itemprop="articleBody">
+            
+            这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西
+
+            
+          </span>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/07/21/个人博客搭建完成啦！/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -589,7 +552,7 @@ manager.responseSerializer = [AFHTTPResponseSerializer serializer]<span class="c
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Mist
   </a>
 </div>
 
