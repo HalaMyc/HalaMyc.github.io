@@ -37,21 +37,27 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
-第一步，使用Co">
+<meta name="description" content="以下为使用node.js完成华东交通大学教务处（http://jwc.ecjtu.jx.cn/mis_o/main.php）成绩爬虫的教程，需要使用到三个node.js的开源库
+express——node.js应用最广泛的web框架
+superagent-charset——可以发起get，post等请求，该框架是superagent的扩展，支持中文
+cheerio——可以理解成一个 Node.js">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift+AFNetworking获取网络数据">
-<meta property="og:url" content="http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/index.html">
+<meta property="og:title" content="node.js完成简单爬虫">
+<meta property="og:url" content="http://www.halamyc.me/2015/08/24/node-js完成简单爬虫/index.html">
 <meta property="og:site_name" content="HalaMyc">
-<meta property="og:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
-第一步，使用Co">
-<meta property="og:image" content="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png">
-<meta property="og:updated_time" content="2015-08-16T13:25:34.000Z">
+<meta property="og:description" content="以下为使用node.js完成华东交通大学教务处（http://jwc.ecjtu.jx.cn/mis_o/main.php）成绩爬虫的教程，需要使用到三个node.js的开源库
+express——node.js应用最广泛的web框架
+superagent-charset——可以发起get，post等请求，该框架是superagent的扩展，支持中文
+cheerio——可以理解成一个 Node.js">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/08/25/55db4318c4bad.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/08/25/55db4434975bb.png">
+<meta property="og:updated_time" content="2015-08-24T16:37:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift+AFNetworking获取网络数据">
-<meta name="twitter:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
-第一步，使用Co">
+<meta name="twitter:title" content="node.js完成简单爬虫">
+<meta name="twitter:description" content="以下为使用node.js完成华东交通大学教务处（http://jwc.ecjtu.jx.cn/mis_o/main.php）成绩爬虫的教程，需要使用到三个node.js的开源库
+express——node.js应用最广泛的web框架
+superagent-charset——可以发起get，post等请求，该框架是superagent的扩展，支持中文
+cheerio——可以理解成一个 Node.js">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +67,7 @@
   };
 </script>
 
-  <title> Swift+AFNetworking获取网络数据 | HalaMyc </title>
+  <title> node.js完成简单爬虫 | HalaMyc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +166,7 @@
           
           
             
-              Swift+AFNetworking获取网络数据
+              node.js完成简单爬虫
             
           
         </h1>
@@ -169,8 +175,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-01T19:36:35+08:00" content="2015-08-01">
-            2015-08-01
+          <time itemprop="dateCreated" datetime="2015-08-24T23:11:57+08:00" content="2015-08-24">
+            2015-08-24
           </time>
         </span>
 
@@ -180,8 +186,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/01/Swift-AFNetworking获取网络数据/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/01/Swift-AFNetworking获取网络数据/" itemprop="commentsCount"></span>
+              <a href="/2015/08/24/node-js完成简单爬虫/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/24/node-js完成简单爬虫/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -195,18 +201,74 @@
       
 
       
-        <span itemprop="articleBody"><p>苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言<br>AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking的github</a><br>通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据</p>
-<h5 id="第一步，使用CocoaPods导入AFNetworking">第一步，使用CocoaPods导入AFNetworking</h5><hr>
-<p>CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods安装和使用教程</a>,文章中就使用了AFNetworking，可见这个库的重要程度。</p>
-<h5 id="第二步，新建Swift与OC混编所需要的桥接文件">第二步，新建Swift与OC混编所需要的桥接文件</h5><hr>
-<p><img src="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png" alt="QQ20150816-2@2x.png" title="QQ20150816-2@2x.png"><br>创建一个.h文件，命名随便，我这里命名为<code>Bridging-header.h</code><br>接下来需要在bulid settings中设置桥接文件<br><img src="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png" alt="QQ20150816-4@2x.png" title="QQ20150816-4@2x.png"><br>路径为项目名称/文件名<br>如果觉得麻烦的话，在项目中创建一个OC文件，xcode为自动帮你生成一个桥接文件并设置好路径<br>最后，打开桥接文件，在文件中导入AFNetworking就行了</p>
-<p><code>#import &lt;AFNetworking/AFNetworking.h&gt;</code></p>
-<h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5><hr>
-<pre><code><span class="keyword">let</span> manager = AFHTTPRequestOperationManager()
- manager.GET<span class="function"><span class="params">(<span class="string">"your api"</span>, parameters: [], success: { (operation:AFHTTPRequestOperation!, response: AnyObject!) -&gt; Void <span class="keyword">in</span>
-        })</span> { <span class="params">(operation: AFHTTPRequestOperation!, error: NSError!)</span> -&gt;</span> Void <span class="keyword">in</span>
-   }
-</code></pre></span>
+        <span itemprop="articleBody"><p>以下为使用node.js完成华东交通大学教务处（<a href="http://jwc.ecjtu.jx.cn/mis_o/main.php）成绩爬虫的教程，需要使用到三个node.js的开源库" target="_blank" rel="external">http://jwc.ecjtu.jx.cn/mis_o/main.php）成绩爬虫的教程，需要使用到三个node.js的开源库</a></p>
+<p><a href="https://github.com/strongloop/express" target="_blank" rel="external">express</a>——node.js应用最广泛的web框架</p>
+<p><a href="https://github.com/magicdawn/superagent-charset" target="_blank" rel="external">superagent-charset</a>——可以发起get，post等请求，该框架是superagent的扩展，支持中文</p>
+<p><a href="https://github.com/cheeriojs/cheerio" target="_blank" rel="external">cheerio</a>——可以理解成一个 Node.js 版的 jquery</p>
+<p>开发工具：<a href="http://www.charlesproxy.com" target="_blank" rel="external">Charles</a>——Mac下用于获取和调试网络请求的利器，windows用户可以使用wireshark代替.</p>
+<p>本文默认你已经搭建好了开发环境，如果没有搭建好环境可以参考<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000" target="_blank" rel="external">安装Node.js和npm</a>,开发环境为OSX， 不推荐在windows下开发<em>(:3 」∠) </em></p>
+<h3 id="项目配置">项目配置</h3><p>打下终端，新建一个repitle文件夹并初始化项目</p>
+<pre><code>$ <span class="built_in">mkdir</span> reptile &amp;&amp; <span class="built_in">cd</span> reptile
+$ npm init
+</code></pre><p>这时候会要你输入一些信息，一直回车使用默认的就行.<br>接下来安装需要的第三方库</p>
+<pre><code>$ npm <span class="operator"><span class="keyword">install</span> express superagent-<span class="keyword">charset</span> cheerio <span class="comment">--save</span></span>
+</code></pre><p>这时候文件夹中就会多一个<code>node_modules</code>文件夹，配置就完成了。</p>
+<h3 id="模块的使用">模块的使用</h3><p>复制以下代码</p>
+<pre><code><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>)
+<span class="keyword">var</span> superagent = <span class="built_in">require</span>(<span class="string">'superagent-charset'</span>)
+<span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>)
+
+<span class="keyword">var</span> app = express()
+app.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>{
+
+}
+
+app.listen(<span class="number">3000</span>)
+</code></pre><p>这样就完成了模块的使用，并且监听了3000端口</p>
+<h3 id="使用工具">使用工具</h3><p>由于该网站需要登录，所以需要知道提交的参数，以及设置cookie，使用Charles可以方便的参看参数<br><img src="https://ooo.0o0.ooo/2015/08/25/55db4318c4bad.png" alt="QQ20150825-1@2x.png" title="QQ20150825-1@2x.png"><br>如图所示，除了表单里要填的user和pass，还有一个Submit参数<br>同样查询页面通过学号查询的参数如下<br><img src="https://ooo.0o0.ooo/2015/08/25/55db4434975bb.png" alt="QQ20150825-2@2x.png" title="QQ20150825-2@2x.png"></p>
+<h3 id="模拟登录">模拟登录</h3><p>通过使用superagent模拟登录网页，此时会生成一个cookie，获取该cookie，查询成绩时使用改cookie就可以获取到网页代码了,具体代码如下:</p>
+<pre><code><span class="keyword">var</span> studentid = req.query.studentid
+<span class="keyword">var</span> term = req.query.term
+superagent
+    .post(<span class="string">'http://jwc.ecjtu.jx.cn/mis_o/login.php'</span>)
+    .send(<span class="string">"user=jwc&amp;pass=jwc&amp;Submit=%CC%E1%BD%"</span>)
+    .end(<span class="function"><span class="keyword">function</span><span class="params">(err, sres)</span></span>{
+        <span class="keyword">var</span> cookie = sres.header[<span class="string">'set-cookie'</span>]
+        console.log(cookie);
+
+        superagent
+        .post(<span class="string">'http://jwc.ecjtu.jx.cn/mis_o/query.php'</span>)
+        .send(<span class="string">"StuID="</span> + studentid)
+        .send(<span class="string">"Term="</span> + term)
+        .charset(<span class="string">'gb2312'</span>)
+        .<span class="keyword">set</span>(<span class="string">"Cookie"</span>, cookie)
+        .end(<span class="function"><span class="keyword">function</span><span class="params">(err,sres)</span></span>{
+        })
+
+    })
+</code></pre><h3 id="抓取成绩">抓取成绩</h3><p>刚刚的代码中已经获取了成绩显示页面的代码了，接下来就需要使用cheerio抓取所需要的信息了，cheerio跟jquery的使用方式差不多，关于jquery选择器这块可以查看<a href="http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345004443979a29e0e0be054e75a652613f132f7f0b000" target="_blank" rel="external">选择器</a><br>具体代码如下:</p>
+<pre><code>var items = []
+            var $ = cheerio.load(sres.text)
+            <span class="variable">$(</span><span class="string">'table'</span>).<span class="keyword">last</span>().children().<span class="keyword">each</span>(function(idx, elements){
+                <span class="keyword">if</span>(idx===<span class="number">0</span>) <span class="keyword">return</span>
+                var <span class="variable">$elem</span> = <span class="variable">$(</span>elements).children()
+                items.<span class="keyword">push</span>({
+                    term: <span class="variable">$elem</span>.e<span class="string">q(0)</span>.text(),
+                    id: <span class="variable">$elem</span>.e<span class="string">q(1)</span>.text(),
+                    name: <span class="variable">$elem</span>.e<span class="string">q(2)</span>.text(),
+                    course: <span class="variable">$elem</span>.e<span class="string">q(3)</span>.text(),
+                    isN: <span class="variable">$elem</span>.e<span class="string">q(4)</span>.text(),
+                    credit: <span class="variable">$elem</span>.e<span class="string">q(5)</span>.text(),
+                    score: <span class="variable">$elem</span>.e<span class="string">q(6)</span>.text(),
+                    score1: <span class="variable">$elem</span>.e<span class="string">q(7)</span>.text(),
+                    score2: <span class="variable">$elem</span>.e<span class="string">q(8)</span>.text()
+                })
+            })
+            res.<span class="keyword">send</span>(items)
+</code></pre><h3 id="运行项目">运行项目</h3><p>打开终端cd到项目文件夹</p>
+<pre><code><span class="variable">$ </span>node app.js
+</code></pre><p>打开浏览器，输入<a href="http://localhost:3000/?studentid=2013xxxxxx&amp;term=2014.2就可以看到结果了,返回的数据格式为JSON，移动端可以获取到数据解析后就可以使用" target="_blank" rel="external">http://localhost:3000/?studentid=2013xxxxxx&amp;term=2014.2就可以看到结果了,返回的数据格式为JSON，移动端可以获取到数据解析后就可以使用</a></p>
+</span>
       
     </div>
 
@@ -217,13 +279,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/16/iOS开发键盘挡住输入框的解决方案/" rel="prev">iOS开发键盘挡住输入框的解决方案</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/01/AFNetworking使用时text-html错误/" rel="next">AFNetworking使用时text/html错误</a>
+              <a href="/2015/08/16/iOS开发键盘挡住输入框的解决方案/" rel="next">iOS开发键盘挡住输入框的解决方案</a>
             
           </div>
         </div>
@@ -248,8 +308,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/01/Swift-AFNetworking获取网络数据/"
-                   data-title="Swift+AFNetworking获取网络数据" data-url="http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/">
+              <div class="ds-thread" data-thread-key="2015/08/24/node-js完成简单爬虫/"
+                   data-title="node.js完成简单爬虫" data-url="http://www.halamyc.me/2015/08/24/node-js完成简单爬虫/">
               </div>
             
           </div>
@@ -356,7 +416,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步，使用CocoaPods导入AFNetworking"><span class="nav-number">1.</span> <span class="nav-text">第一步，使用CocoaPods导入AFNetworking</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步，新建Swift与OC混编所需要的桥接文件"><span class="nav-number">2.</span> <span class="nav-text">第二步，新建Swift与OC混编所需要的桥接文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步，在代码中使用AFNetworking"><span class="nav-number">3.</span> <span class="nav-text">第三步，在代码中使用AFNetworking</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目配置"><span class="nav-number">1.</span> <span class="nav-text">项目配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模块的使用"><span class="nav-number">2.</span> <span class="nav-text">模块的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用工具"><span class="nav-number">3.</span> <span class="nav-text">使用工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟登录"><span class="nav-number">4.</span> <span class="nav-text">模拟登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#抓取成绩"><span class="nav-number">5.</span> <span class="nav-text">抓取成绩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行项目"><span class="nav-number">6.</span> <span class="nav-text">运行项目</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
