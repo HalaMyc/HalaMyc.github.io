@@ -28,7 +28,7 @@
 
 
 
-  <meta name="keywords" content="Swift," />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -37,21 +37,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
-第一步，使用Co">
+<meta name="description" content="开发过程中总是会遇到一个bug，我们创建一个新的控件如UITableView，添加在视图中，frame设置为self.view.bounds，当控制器被导航控制器push的时候，视图会默认添加一个导航栏，那么问题来了，我们添加的tableview是在导航栏下面呢，还是被导航栏覆盖呢？在我的项目中，这个问题有点莫名其妙，从某一处push是覆盖，另一处push是在导航栏下面，效果如下图：一开始我用UI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Swift+AFNetworking获取网络数据">
-<meta property="og:url" content="http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/index.html">
+<meta property="og:title" content="iOS 导航栏覆盖问题">
+<meta property="og:url" content="http://www.halamyc.me/2015/09/19/iOS-导航栏覆盖问题/index.html">
 <meta property="og:site_name" content="HalaMyc">
-<meta property="og:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
-第一步，使用Co">
-<meta property="og:image" content="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png">
-<meta property="og:image" content="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png">
-<meta property="og:updated_time" content="2015-08-25T06:41:15.000Z">
+<meta property="og:description" content="开发过程中总是会遇到一个bug，我们创建一个新的控件如UITableView，添加在视图中，frame设置为self.view.bounds，当控制器被导航控制器push的时候，视图会默认添加一个导航栏，那么问题来了，我们添加的tableview是在导航栏下面呢，还是被导航栏覆盖呢？在我的项目中，这个问题有点莫名其妙，从某一处push是覆盖，另一处push是在导航栏下面，效果如下图：一开始我用UI">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/09/19/55fcc49d0f91d.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/09/19/55fcc49d4340a.png">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/09/19/55fcc49d50e36.png">
+<meta property="og:updated_time" content="2015-09-19T02:36:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Swift+AFNetworking获取网络数据">
-<meta name="twitter:description" content="苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问AFNetworking的github通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据
-第一步，使用Co">
+<meta name="twitter:title" content="iOS 导航栏覆盖问题">
+<meta name="twitter:description" content="开发过程中总是会遇到一个bug，我们创建一个新的控件如UITableView，添加在视图中，frame设置为self.view.bounds，当控制器被导航控制器push的时候，视图会默认添加一个导航栏，那么问题来了，我们添加的tableview是在导航栏下面呢，还是被导航栏覆盖呢？在我的项目中，这个问题有点莫名其妙，从某一处push是覆盖，另一处push是在导航栏下面，效果如下图：一开始我用UI">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -61,7 +59,7 @@
   };
 </script>
 
-  <title> Swift+AFNetworking获取网络数据 | HalaMyc </title>
+  <title> iOS 导航栏覆盖问题 | HalaMyc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -160,7 +158,7 @@
           
           
             
-              Swift+AFNetworking获取网络数据
+              iOS 导航栏覆盖问题
             
           
         </h1>
@@ -169,8 +167,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-08-01T19:36:35+08:00" content="2015-08-01">
-            2015-08-01
+          <time itemprop="dateCreated" datetime="2015-09-19T10:14:33+08:00" content="2015-09-19">
+            2015-09-19
           </time>
         </span>
 
@@ -180,8 +178,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/08/01/Swift-AFNetworking获取网络数据/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/08/01/Swift-AFNetworking获取网络数据/" itemprop="commentsCount"></span>
+              <a href="/2015/09/19/iOS-导航栏覆盖问题/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/19/iOS-导航栏覆盖问题/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -195,17 +193,8 @@
       
 
       
-        <span itemprop="articleBody"><p>苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言<br>AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="external">AFNetworking的github</a><br>通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据</p>
-<h5 id="第一步，使用CocoaPods导入AFNetworking">第一步，使用CocoaPods导入AFNetworking</h5><hr>
-<p>CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考<a href="http://code4app.com/article/cocoapods-install-usage" target="_blank" rel="external">CocoaPods安装和使用教程</a>,文章中就使用了AFNetworking，可见这个库的重要程度。</p>
-<h5 id="第二步，新建Swift与OC混编所需要的桥接文件">第二步，新建Swift与OC混编所需要的桥接文件</h5><hr>
-<p><img src="https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png" alt="QQ20150816-2@2x.png" title="QQ20150816-2@2x.png"><br>创建一个.h文件，命名随便，我这里命名为<code>Bridging-header.h</code><br>接下来需要在bulid settings中设置桥接文件<br><img src="https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png" alt="QQ20150816-4@2x.png" title="QQ20150816-4@2x.png"><br>路径为项目名称/文件名<br>如果觉得麻烦的话，在项目中创建一个OC文件，xcode为自动帮你生成一个桥接文件并设置好路径<br>最后，打开桥接文件，在文件中导入AFNetworking就行了</p>
-<p><code>#import &lt;AFNetworking/AFNetworking.h&gt;</code></p>
-<h5 id="第三步，在代码中使用AFNetworking">第三步，在代码中使用AFNetworking</h5><hr>
-<pre><code><span class="keyword">let</span> manager = AFHTTPRequestOperationManager()
- manager.GET<span class="function"><span class="params">(<span class="string">"your api"</span>, parameters: [], success: { (operation:AFHTTPRequestOperation!, response: AnyObject!) -&gt; Void <span class="keyword">in</span>
-        })</span> { <span class="params">(operation: AFHTTPRequestOperation!, error: NSError!)</span> -&gt;</span> Void <span class="keyword">in</span>
-   }
+        <span itemprop="articleBody"><p>开发过程中总是会遇到一个bug，我们创建一个新的控件如UITableView，添加在视图中，frame设置为self.view.bounds，当控制器被导航控制器push的时候，视图会默认添加一个导航栏，那么问题来了，我们添加的tableview是在导航栏下面呢，还是被导航栏覆盖呢？在我的项目中，这个问题有点莫名其妙，从某一处push是覆盖，另一处push是在导航栏下面，效果如下图：<br><img src="https://ooo.0o0.ooo/2015/09/19/55fcc49d0f91d.png" alt="QQ20150919-1@2x.png" title="QQ20150919-1@2x.png"><br><img src="https://ooo.0o0.ooo/2015/09/19/55fcc49d4340a.png" alt="QQ20150919-3@2x.png" title="QQ20150919-3@2x.png"><br><img src="https://ooo.0o0.ooo/2015/09/19/55fcc49d50e36.png" alt="QQ20150919-2@2x.png" title="QQ20150919-2@2x.png"><br>一开始我用UIWebView出现了这个问题，以为只有网页会这样，就没管那么多，后来发现UITableView也这样，这就不能忍了。<br>一开始想通过设置frame，将y设置为44，这样在被覆盖就解决了，但是对于没有被覆盖的时候来说，整个界面就被下拉了44，导致中间一段都是空的。<br>后来通过搜索发现，iOS7以后，苹果默认将视图从导航栏顶部开始，UIViewController有一个属性edgesForExtendedLayout，默认为ALL，将其设置为None，就可以解决了。</p>
+<pre><code><span class="built_in">self</span><span class="built_in">.</span>edgesForExtendedLayout <span class="subst">=</span> <span class="built_in">.</span><span class="literal">None</span>
 </code></pre></span>
       
     </div>
@@ -214,7 +203,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Swift/" rel="tag">#Swift</a>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
         </div>
       
@@ -223,13 +212,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/16/iOS开发键盘挡住输入框的解决方案/" rel="prev">iOS开发键盘挡住输入框的解决方案</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/01/AFNetworking使用时text-html错误/" rel="next">AFNetworking使用时text/html错误</a>
+              <a href="/2015/09/13/记一次不完美的招新/" rel="next">记一次不完美的招新</a>
             
           </div>
         </div>
@@ -254,8 +241,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/08/01/Swift-AFNetworking获取网络数据/"
-                   data-title="Swift+AFNetworking获取网络数据" data-url="http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/">
+              <div class="ds-thread" data-thread-key="2015/09/19/iOS-导航栏覆盖问题/"
+                   data-title="iOS 导航栏覆盖问题" data-url="http://www.halamyc.me/2015/09/19/iOS-导航栏覆盖问题/">
               </div>
             
           </div>
@@ -362,7 +349,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步，使用CocoaPods导入AFNetworking"><span class="nav-number">1.</span> <span class="nav-text">第一步，使用CocoaPods导入AFNetworking</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第二步，新建Swift与OC混编所需要的桥接文件"><span class="nav-number">2.</span> <span class="nav-text">第二步，新建Swift与OC混编所需要的桥接文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#第三步，在代码中使用AFNetworking"><span class="nav-number">3.</span> <span class="nav-text">第三步，在代码中使用AFNetworking</span></a></li></ol></div>
+              <p class="post-toc-empty">此文章未包含目录</p>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
