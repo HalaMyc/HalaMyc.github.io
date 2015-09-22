@@ -37,19 +37,26 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="招新对一个社团来说很大程度上决定了社团一年的发展，15年的秋季招新不算太差，但是相对14年的118爆满来说，差距显而易见。
-前期准备前期准备没有做好也是这次招新的主要问题，我们虽然更改了网页，推出了app，但是宣传的效果不如去年，没有在贴吧、微信等进行较好的宣传。网上报名的网页也一直没有太在意，实际已经不能用了，最重要的宣传单和社服一直在拖，虽然图案在开学前确定了，但是成员间都没有太重视，开学后的">
+<meta name="description" content="前两天看了叶孤城大神的文章，为什么说,你纯看代码而没有碰到这个场景你就算看懂了也没法理解?，感觉特别有用，所以想试着写一个小的demo，实际操作一下关于搜索的这个技巧，demo在这：searchDemo
+demo运行效果图
+
+代码核心大神的博客中写的很清楚了，我们每次输入都会发送一个请求，而AFN中请求是通过NSOperation进行的，学习过多线程的知识就会知道，多线程返回的结果很难控制，很可能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一次不完美的招新">
-<meta property="og:url" content="http://www.halamyc.me/2015/09/13/记一次不完美的招新/index.html">
+<meta property="og:title" content="活学活用，搜索小demo">
+<meta property="og:url" content="http://www.halamyc.me/2015/09/22/活学活用，搜索小demo/index.html">
 <meta property="og:site_name" content="HalaMyc">
-<meta property="og:description" content="招新对一个社团来说很大程度上决定了社团一年的发展，15年的秋季招新不算太差，但是相对14年的118爆满来说，差距显而易见。
-前期准备前期准备没有做好也是这次招新的主要问题，我们虽然更改了网页，推出了app，但是宣传的效果不如去年，没有在贴吧、微信等进行较好的宣传。网上报名的网页也一直没有太在意，实际已经不能用了，最重要的宣传单和社服一直在拖，虽然图案在开学前确定了，但是成员间都没有太重视，开学后的">
-<meta property="og:updated_time" content="2015-09-13T07:12:19.000Z">
+<meta property="og:description" content="前两天看了叶孤城大神的文章，为什么说,你纯看代码而没有碰到这个场景你就算看懂了也没法理解?，感觉特别有用，所以想试着写一个小的demo，实际操作一下关于搜索的这个技巧，demo在这：searchDemo
+demo运行效果图
+
+代码核心大神的博客中写的很清楚了，我们每次输入都会发送一个请求，而AFN中请求是通过NSOperation进行的，学习过多线程的知识就会知道，多线程返回的结果很难控制，很可能">
+<meta property="og:image" content="https://ooo.0o0.ooo/2015/09/22/560130d2ccf3b.gif">
+<meta property="og:updated_time" content="2015-09-22T11:05:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一次不完美的招新">
-<meta name="twitter:description" content="招新对一个社团来说很大程度上决定了社团一年的发展，15年的秋季招新不算太差，但是相对14年的118爆满来说，差距显而易见。
-前期准备前期准备没有做好也是这次招新的主要问题，我们虽然更改了网页，推出了app，但是宣传的效果不如去年，没有在贴吧、微信等进行较好的宣传。网上报名的网页也一直没有太在意，实际已经不能用了，最重要的宣传单和社服一直在拖，虽然图案在开学前确定了，但是成员间都没有太重视，开学后的">
+<meta name="twitter:title" content="活学活用，搜索小demo">
+<meta name="twitter:description" content="前两天看了叶孤城大神的文章，为什么说,你纯看代码而没有碰到这个场景你就算看懂了也没法理解?，感觉特别有用，所以想试着写一个小的demo，实际操作一下关于搜索的这个技巧，demo在这：searchDemo
+demo运行效果图
+
+代码核心大神的博客中写的很清楚了，我们每次输入都会发送一个请求，而AFN中请求是通过NSOperation进行的，学习过多线程的知识就会知道，多线程返回的结果很难控制，很可能">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -59,7 +66,7 @@
   };
 </script>
 
-  <title> 记一次不完美的招新 | HalaMyc </title>
+  <title> 活学活用，搜索小demo | HalaMyc </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -158,7 +165,7 @@
           
           
             
-              记一次不完美的招新
+              活学活用，搜索小demo
             
           
         </h1>
@@ -167,8 +174,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-13T12:09:55+08:00" content="2015-09-13">
-            2015-09-13
+          <time itemprop="dateCreated" datetime="2015-09-22T17:51:50+08:00" content="2015-09-22">
+            2015-09-22
           </time>
         </span>
 
@@ -178,8 +185,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/13/记一次不完美的招新/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/13/记一次不完美的招新/" itemprop="commentsCount"></span>
+              <a href="/2015/09/22/活学活用，搜索小demo/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/22/活学活用，搜索小demo/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -193,13 +200,12 @@
       
 
       
-        <span itemprop="articleBody"><p>招新对一个社团来说很大程度上决定了社团一年的发展，15年的秋季招新不算太差，但是相对14年的118爆满来说，差距显而易见。</p>
-<h4 id="前期准备">前期准备</h4><p>前期准备没有做好也是这次招新的主要问题，我们虽然更改了网页，推出了app，但是宣传的效果不如去年，没有在贴吧、微信等进行较好的宣传。网上报名的网页也一直没有太在意，实际已经不能用了，最重要的宣传单和社服一直在拖，虽然图案在开学前确定了，但是成员间都没有太重视，开学后的开会才开始重视，吐槽宣传单和社服，等到招新前几天才定稿。去年有印卡贴，很多新生也是蛮喜欢的，这种宣传方式其实很赞，但是今年招新前两天我才想起来这事，原本一方暑假就有提过的事，当时并没有在意，导致今年印卡贴来不及了。同样是那个晚上，服务器出了问题，烦得焦头烂额的时候想起来面试教室没有申请，31栋118这个比较抢手的教室，幸运的是在我们希望的面试时间教室没有被占。</p>
-<h4 id="招新期间">招新期间</h4><p>由于宣传单和社服在招新前几天才定稿，所以要在招新前加急印宣传单和社服，社服加急邮费吓人，所幸最后在招新前送到了学校。最坑爹的就是宣传单了，淘宝印肯定来不及，所以就找学校附近的店印，店里要发到工厂印再寄过来，结果招新前一天晚上才知道宣传单还没有印，要求加急的话又要加钱，被逼无奈只好加急，抱着宣传单到不了的心态，带上了前两个学期的宣传单去招新，幸运的是早上宣传单到了。灾难远没有结束，上课回来，第一波新生已经去食堂了，仅仅过了一波新生，1000份宣传单大概只剩300张了，接下来的招新就只能省着发传单。宣传单是临时改的封面，没有经过周密的考虑，大家都只是觉得好看，就印了，快发完了才发现，整个宣传单上竟然没有计算机紧急响应组几个字，只有CERT，然而新生并不知道CERT是啥，光看CERT也看不出我们是个计算机社团，这也许是今年招新的时候维修部人数惨淡的原因。宣传单定稿前，在线报名的网站出现了问题，准备修复的时候发现服务器也出现了问题，导致急着定稿的传单没有办法加上cert在线报名的网址，而是改成了比较麻烦的加群的方式，很多新生拿了传单不知道改怎么报名，加群的也很少。</p>
-<h4 id="笔试面试">笔试面试</h4><p>说实话今年笔试题目真的挺难的(相对去年来说)，很多人一拿到卷子就不想写了，维修部白卷很多，观察了下，技术的人还是很积极很努力的在写，产品人也好像还行，这大概也是这两年社团方向转变的结果吧，以产品为导向，技术和产品是社团发展壮大的基础，这是好事，维修部确实也不需要太多人了，但是作为一个维修部出来的人看见昔日辉煌的维修部变得这么萧条还是觉得很难过。面试比去年似乎效果好很多，去年我们几个面技术，没有经过太多的讨论就临时上阵，结果面试就随便问了几句话就不知道问什么，就让新生走了，导致人都对不上号，今年技术这边来帮忙面试的人很多，新生也比较有秩序(可能是因为题目太多都还想多做几道)，观察了下每个人面试都挺久的，面完后也都做了简短的记录，这大概是这次招新唯一一个完美的过程了吧。</p>
-<h4 id="总结+反省">总结+反省</h4><p>在任期间的第一次招新，并不完美，突发情况很多，很多事情不到紧急关头都想不到，我的责任最大，原因有很多。我自以为自己是个很谨慎的人但是实际上并不算是，可能跟平时不愿写写备忘录之类的东西有关，总觉得自己记性好能记住。现在组里没有李董这样的能够一个人管理整个社团杂事的人，要想管好整个社团还是要好好改掉自己的坏毛病，增强下自己的管理能力，也算是为进入社会做做准备吧，之所以竞选组长其实也就是想锻炼下自己的能力，如果单纯的想搞技术当初也就不应该竞选了。</p>
-<hr>
-<p>写这篇文章主要是为了回顾下这次招新的过程，把招新的没做好的地方都记录下来，给以后的组长吸取点教训吧，之后还会总结下注意事项。忙完了该好好学习了。</p>
+        <span itemprop="articleBody"><p>前两天看了<a href="http://www.weibo.com/u/1438670852?from=feed&amp;loc=avatar" target="_blank" rel="external">叶孤城</a>大神的文章，<a href="http://www.jianshu.com/p/d63d0509229c?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=writer_share&amp;utm_source=weibo" target="_blank" rel="external">为什么说,你纯看代码而没有碰到这个场景你就算看懂了也没法理解?</a>，感觉特别有用，所以想试着写一个小的demo，实际操作一下关于搜索的这个技巧，demo在这：<a href="https://github.com/HalaMyc/searchDemo" target="_blank" rel="external">searchDemo</a></p>
+<p>demo运行效果图</p>
+<p><img src="https://ooo.0o0.ooo/2015/09/22/560130d2ccf3b.gif" alt="Untitled.gif" title="Untitled.gif"></p>
+<h4 id="代码核心">代码核心</h4><p>大神的博客中写的很清楚了，我们每次输入都会发送一个请求，而AFN中请求是通过NSOperation进行的，学习过多线程的知识就会知道，多线程返回的结果很难控制，很可能我们输入了www，最终返回的是输入ww时返回的结果，这样的话就不是我们希望的结果了，所以我们必须进行一些处理，关键其实就是将上一个请求给cancel掉，cancel掉之后即使有返回数据，我们可以通过判断这个请求是否已经被cancel来判断是否对数据进行处理。</p>
+<h4 id="关于监听输入">关于监听输入</h4><p>博客中写的是通过UITextFiled的代理方法获取每次输入的字符，但是我在UITextField的delegate中并没有发现那个方法可以监听输入（也可能是因为我确实没找到），不过在寻找的过程中我发现了<code>UITextFieldTextDidChangeNotification</code>这个常量，说明可以通过注册通知来监听输入的改变</p>
+<h4 id="关于接口">关于接口</h4><p>一开始我在百度的apistore中找到了一个音乐搜索接口，但是在使用中发现返回的一直是null，原因未知，让安卓开发的朋友试了下也是null，所以最终还是决定自己用node.js写一个简单的本地接口调用，返回的数据只是多条跟输入字符相同的数据，仅仅做测试还是够了的。</p>
 </span>
       
     </div>
@@ -211,13 +217,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/19/iOS-导航栏覆盖问题/" rel="prev">iOS 导航栏覆盖问题</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/24/node-js完成简单爬虫/" rel="next">node.js完成简单爬虫</a>
+              <a href="/2015/09/19/iOS-导航栏覆盖问题/" rel="next">iOS 导航栏覆盖问题</a>
             
           </div>
         </div>
@@ -242,8 +246,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/13/记一次不完美的招新/"
-                   data-title="记一次不完美的招新" data-url="http://www.halamyc.me/2015/09/13/记一次不完美的招新/">
+              <div class="ds-thread" data-thread-key="2015/09/22/活学活用，搜索小demo/"
+                   data-title="活学活用，搜索小demo" data-url="http://www.halamyc.me/2015/09/22/活学活用，搜索小demo/">
               </div>
             
           </div>
@@ -350,7 +354,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前期准备"><span class="nav-number">1.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#招新期间"><span class="nav-number">2.</span> <span class="nav-text">招新期间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#笔试面试"><span class="nav-number">3.</span> <span class="nav-text">笔试面试</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结+反省"><span class="nav-number">4.</span> <span class="nav-text">总结+反省</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码核心"><span class="nav-number">1.</span> <span class="nav-text">代码核心</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于监听输入"><span class="nav-number">2.</span> <span class="nav-text">关于监听输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于接口"><span class="nav-number">3.</span> <span class="nav-text">关于接口</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
