@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>HalaMyc</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.halamyc.me/"/>
+  <updated>2016-04-14T16:59:25.000Z</updated>
+  <id>http://www.halamyc.me/</id>
+  
+  <author>
+    <name>MouYacheng</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>两次电话面试后的总结</title>
+    <link href="http://www.halamyc.me/2016/04/14/%E4%B8%A4%E6%AC%A1%E7%94%B5%E8%AF%9D%E9%9D%A2%E8%AF%95%E5%90%8E%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>http://www.halamyc.me/2016/04/14/两次电话面试后的总结/</id>
+    <published>2016-04-14T15:48:15.000Z</published>
+    <updated>2016-04-14T16:59:25.000Z</updated>
+    
+    <content type="html">&lt;p&gt;从三月到现在各大公司都开始招暑假实习生，寒假基本颓废状态的我并没有准备好，硬着头皮找了内推上了，几个大厂都投了，腾讯第一次电话面试没接到，提前的offer机会也就错过了。紧接着在完全没准备的状态下接到了阿里的电面，结局当然是稳挂。运气比较好的是腾讯大概是缺人，给了第二次机会，目前不知道结果。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;阿里电面&quot;&gt;阿里电面&lt;/h3&gt;&lt;p&gt;上课的时候接到阿里的电话，立马出去接了，面了大概半小时左右吧。上来先是介绍下自己以及项目，但是并没有太关注项目，简单的了解了之后就开始问OC的基础了，这一块之前有一直在看《osx和ios内存管理》这本书，但是因为没想到面试来的这么突然，加上有点紧张，答的不是很好。&lt;/p&gt;
+&lt;p&gt;ios基础问了很多方面，内存管理方面较多，ARC、weak和assign、autorelease等，ios生命周期、初始化等。&lt;/p&gt;
+&lt;p&gt;问完这些就开始问专业基础，有哪几种排序，解释下快排，快排体现了那种思想，TCP与UDP的区别，TCP是如何实现安全传输的，堆和栈的区别，栈对于操作系统的意义。&lt;/p&gt;
+&lt;p&gt;项目中遇到过哪些问题，怎么解决的？&lt;/p&gt;
+&lt;p&gt;面了半个小时左右，实际上都是很基础很常规的问题，但是自己完全没有准备好，第一次面试非常失败。&lt;/p&gt;
+&lt;h3 id=&quot;鹅厂电面&quot;&gt;鹅厂电面&lt;/h3&gt;&lt;p&gt;说实话能拿到电面机会纯属运气好，提前一周就通知我了，原本我是武汉路线，告诉我去南京面试，因为是他们改了面试地点，所以主动联系我给我安排电话复试。开始没有反应过来，觉得既然有机会就好好复习基础，看了几天基础后才发现是复试，也就是二面，二面一般问项目经验比较多，我才开始回想自己的项目，防止出现阿里电面时项目遇到什么问题都回答不出的尴尬。结果当天晚上就突然打电话给我了。&lt;/p&gt;
+&lt;p&gt;上来先让自我介绍，完全没准备的我就简短的介绍了下，面试官可能都觉得太短了。事后想想其实很多东西都没有说出来，虽说自我介绍不能太长但是我说的也太短了点，两句话就说完了。&lt;/p&gt;
+&lt;p&gt;介绍完就让我说说参加的创业项目，以及自己负责的模块中最出彩的技术点是什么，我的回答是UITableView的复用问题和优化，优化解释到了重写cell的drawrect方法进行重绘这一步。自我感觉到这里都还可以&lt;/p&gt;
+&lt;p&gt;接着让我介绍我的个人上架项目，问了两个问题，一个是上架过程中遇到的问题，一个是oc和swift的区别，这两个没怎么回答好，并没有想到会问这样的问题。&lt;/p&gt;
+&lt;p&gt;再之后就问自己的兴趣爱好，有没有什么想问他的，面试就结束了，持续时间大概只有15分钟左右，时间非常短。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;总结：自己没有做好准备，基础不行，还不够资格参加大厂的面试。两次电面让颓废了很长时间的我找回了一点学习的状态，接下来的时间不管面试结果如何，一边学习其他方面的东西一遍打好基础吧，平时好好整理自己的项目到关键时刻就不会手忙脚乱了，所以也要把自己的项目好好整理下，写在博客里，很长时间没有打理博客了。如果鹅厂挂了的话这学期结束就要当一个北漂了，祝自己好运。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从三月到现在各大公司都开始招暑假实习生，寒假基本颓废状态的我并没有准备好，硬着头皮找了内推上了，几个大厂都投了，腾讯第一次电话面试没接到，提前的offer机会也就错过了。紧接着在完全没准备的状态下接到了阿里的电面，结局当然是稳挂。运气比较好的是腾讯大概是缺人，给了第二次机会
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Cocoapods正确的使用姿势</title>
+    <link href="http://www.halamyc.me/2015/10/24/Cocoapods%E6%AD%A3%E7%A1%AE%E7%9A%84%E4%BD%BF%E7%94%A8%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://www.halamyc.me/2015/10/24/Cocoapods正确的使用姿势/</id>
+    <published>2015-10-24T02:57:08.000Z</published>
+    <updated>2015-10-24T03:31:24.000Z</updated>
+    
+    <content type="html">&lt;p&gt;有过一段时间iOS和OS X开发经验的人应该都用过Cocoapods，Cocoapods的好处就不用多说了，非常方便的集成项目所需的依赖，之前在使用Cocoapods的时候一直觉得挺好挺方便的，除了觉得每次install和update几乎一直卡着不动被逼无奈选择跳过Cocoapods的spec库，最近在新建一个项目的时候才发现了这样做事不对的，于是写一篇文章劝诫各位不要随便跳过。&lt;/p&gt;
+&lt;h4 id=&quot;发现问题的经过&quot;&gt;发现问题的经过&lt;/h4&gt;&lt;p&gt;我在Xcode7新建了一个项目，选择Swift开发，第三方依赖选择了ALamofire代替之前一直使用的AFNetworking，新版的Xcode必然使用的事Swift2.0，于是在项目运行的时候就出问题了，问题就出自ALamofire，报错原因是ALamofire使用的还是Swift1.2。但是我在微博上几个月以前就看到AL在Swift2.0出现之后没几天就更新了新版支持2.0，为什么我的还会报错。检查下AL的版本发现，最新的是3.0，而我项目中的是1.2，所以导致了错误。&lt;/p&gt;
+&lt;p&gt;下面是我的Podfile&lt;br&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/005DFtxSjw1exc2gdof8kj30jk0620uc.jpg&quot; alt=&quot;image&quot;&gt;&lt;br&gt;一开始以为是我的Podfile有问题，是不是不指定版本默认就使用老的版本呢，于是我指定了版本为3.0,就像下面这样&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/005DFtxSjw1exc2fchsurj30kw066abu.jpg&quot; alt=&quot;image&quot;&gt;&lt;br&gt;但是！！！update的时候报错了！！！找不到3.0！！！&lt;br&gt;google了几十分钟依然无果，stackoverflow上类似问题挺多的，不过都无法解决问题，最后我突然想到是不是由于跳过了更新spec库，旧的库里面没有更新的那么快呢，于是我选择不跳过了，但是不跳过更新又卡着不动了，于是去找解决办法，最后发现可能换个国内镜像就好了。。。&lt;/p&gt;
+&lt;h4 id=&quot;解决办法&quot;&gt;解决办法&lt;/h4&gt;&lt;p&gt;不要再使用&lt;code&gt;pod install --verbose --no-repo-update&lt;/code&gt;和&lt;code&gt;pod update --verbose --no-repo-update&lt;/code&gt;跳过更新了！！！百度出来的解决办法基本都是这个，但是真的不要再用了！！！&lt;/p&gt;
+&lt;p&gt;正常使用&lt;code&gt;pod install&lt;/code&gt;和&lt;code&gt;pod update&lt;/code&gt;就好，不过需要修改一下镜像，关于镜像这里附上google出来的博文&lt;a href=&quot;http://lloydsheng.com/post/setup-cocoapods-mirror&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;制作Cocoapods国内镜像&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自己做一个国内镜像或者不愿动手的话使用上述链接中博主的镜像就行&lt;/p&gt;
+&lt;p&gt;改完之后并且愉快的update了新版的AL后才明白，为什么google出来的解决办法都无法解决，因为人家歪果仁不会碰到我这样的问题啊，人家正常update就很快了为什么要跳过更新呢。。。&lt;/p&gt;
+&lt;p&gt;最后再说一句，&lt;strong&gt;Fuck GFW！！&lt;/strong&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;有过一段时间iOS和OS X开发经验的人应该都用过Cocoapods，Cocoapods的好处就不用多说了，非常方便的集成项目所需的依赖，之前在使用Cocoapods的时候一直觉得挺好挺方便的，除了觉得每次install和update几乎一直卡着不动被逼无奈选择跳过Coco
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>活学活用，搜索小demo</title>
+    <link href="http://www.halamyc.me/2015/09/22/%E6%B4%BB%E5%AD%A6%E6%B4%BB%E7%94%A8%EF%BC%8C%E6%90%9C%E7%B4%A2%E5%B0%8Fdemo/"/>
+    <id>http://www.halamyc.me/2015/09/22/活学活用，搜索小demo/</id>
+    <published>2015-09-22T09:51:50.000Z</published>
+    <updated>2015-09-22T11:05:57.000Z</updated>
+    
+    <content type="html">&lt;p&gt;前两天看了&lt;a href=&quot;http://www.weibo.com/u/1438670852?from=feed&amp;amp;loc=avatar&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;叶孤城&lt;/a&gt;大神的文章，&lt;a href=&quot;http://www.jianshu.com/p/d63d0509229c?utm_campaign=maleskine&amp;amp;utm_content=note&amp;amp;utm_medium=writer_share&amp;amp;utm_source=weibo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;为什么说,你纯看代码而没有碰到这个场景你就算看懂了也没法理解?&lt;/a&gt;，感觉特别有用，所以想试着写一个小的demo，实际操作一下关于搜索的这个技巧，demo在这：&lt;a href=&quot;https://github.com/HalaMyc/searchDemo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;searchDemo&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;demo运行效果图&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/09/22/560130d2ccf3b.gif&quot; alt=&quot;Untitled.gif&quot; title=&quot;Untitled.gif&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;代码核心&quot;&gt;代码核心&lt;/h4&gt;&lt;p&gt;大神的博客中写的很清楚了，我们每次输入都会发送一个请求，而AFN中请求是通过NSOperation进行的，学习过多线程的知识就会知道，多线程返回的结果很难控制，很可能我们输入了www，最终返回的是输入ww时返回的结果，这样的话就不是我们希望的结果了，所以我们必须进行一些处理，关键其实就是将上一个请求给cancel掉，cancel掉之后即使有返回数据，我们可以通过判断这个请求是否已经被cancel来判断是否对数据进行处理。&lt;/p&gt;
+&lt;h4 id=&quot;关于监听输入&quot;&gt;关于监听输入&lt;/h4&gt;&lt;p&gt;博客中写的是通过UITextFiled的代理方法获取每次输入的字符，但是我在UITextField的delegate中并没有发现那个方法可以监听输入（也可能是因为我确实没找到），不过在寻找的过程中我发现了&lt;code&gt;UITextFieldTextDidChangeNotification&lt;/code&gt;这个常量，说明可以通过注册通知来监听输入的改变&lt;/p&gt;
+&lt;h4 id=&quot;关于接口&quot;&gt;关于接口&lt;/h4&gt;&lt;p&gt;一开始我在百度的apistore中找到了一个音乐搜索接口，但是在使用中发现返回的一直是null，原因未知，让安卓开发的朋友试了下也是null，所以最终还是决定自己用node.js写一个简单的本地接口调用，返回的数据只是多条跟输入字符相同的数据，仅仅做测试还是够了的。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前两天看了&lt;a href=&quot;http://www.weibo.com/u/1438670852?from=feed&amp;amp;loc=avatar&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;叶孤城&lt;/a&gt;大神的文章，&lt;a href=&quot;http://www
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 导航栏覆盖问题</title>
+    <link href="http://www.halamyc.me/2015/09/19/iOS-%E5%AF%BC%E8%88%AA%E6%A0%8F%E8%A6%86%E7%9B%96%E9%97%AE%E9%A2%98/"/>
+    <id>http://www.halamyc.me/2015/09/19/iOS-导航栏覆盖问题/</id>
+    <published>2015-09-19T02:14:33.000Z</published>
+    <updated>2015-09-19T02:36:39.000Z</updated>
+    
+    <content type="html">&lt;p&gt;开发过程中总是会遇到一个bug，我们创建一个新的控件如UITableView，添加在视图中，frame设置为self.view.bounds，当控制器被导航控制器push的时候，视图会默认添加一个导航栏，那么问题来了，我们添加的tableview是在导航栏下面呢，还是被导航栏覆盖呢？在我的项目中，这个问题有点莫名其妙，从某一处push是覆盖，另一处push是在导航栏下面，效果如下图：&lt;br&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/09/19/55fcc49d0f91d.png&quot; alt=&quot;QQ20150919-1@2x.png&quot; title=&quot;QQ20150919-1@2x.png&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/09/19/55fcc49d4340a.png&quot; alt=&quot;QQ20150919-3@2x.png&quot; title=&quot;QQ20150919-3@2x.png&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/09/19/55fcc49d50e36.png&quot; alt=&quot;QQ20150919-2@2x.png&quot; title=&quot;QQ20150919-2@2x.png&quot;&gt;&lt;br&gt;一开始我用UIWebView出现了这个问题，以为只有网页会这样，就没管那么多，后来发现UITableView也这样，这就不能忍了。&lt;br&gt;一开始想通过设置frame，将y设置为44，这样在被覆盖就解决了，但是对于没有被覆盖的时候来说，整个界面就被下拉了44，导致中间一段都是空的。&lt;br&gt;后来通过搜索发现，iOS7以后，苹果默认将视图从导航栏顶部开始，UIViewController有一个属性edgesForExtendedLayout，默认为ALL，将其设置为None，就可以解决了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;built_in&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;built_in&quot;&gt;.&lt;/span&gt;edgesForExtendedLayout &lt;span class=&quot;subst&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;literal&quot;&gt;None&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;开发过程中总是会遇到一个bug，我们创建一个新的控件如UITableView，添加在视图中，frame设置为self.view.bounds，当控制器被导航控制器push的时候，视图会默认添加一个导航栏，那么问题来了，我们添加的tableview是在导航栏下面呢，还是被导航
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://www.halamyc.me/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记一次不完美的招新</title>
+    <link href="http://www.halamyc.me/2015/09/13/%E8%AE%B0%E4%B8%80%E6%AC%A1%E4%B8%8D%E5%AE%8C%E7%BE%8E%E7%9A%84%E6%8B%9B%E6%96%B0/"/>
+    <id>http://www.halamyc.me/2015/09/13/记一次不完美的招新/</id>
+    <published>2015-09-13T04:09:55.000Z</published>
+    <updated>2015-09-13T07:12:19.000Z</updated>
+    
+    <content type="html">&lt;p&gt;招新对一个社团来说很大程度上决定了社团一年的发展，15年的秋季招新不算太差，但是相对14年的118爆满来说，差距显而易见。&lt;/p&gt;
+&lt;h4 id=&quot;前期准备&quot;&gt;前期准备&lt;/h4&gt;&lt;p&gt;前期准备没有做好也是这次招新的主要问题，我们虽然更改了网页，推出了app，但是宣传的效果不如去年，没有在贴吧、微信等进行较好的宣传。网上报名的网页也一直没有太在意，实际已经不能用了，最重要的宣传单和社服一直在拖，虽然图案在开学前确定了，但是成员间都没有太重视，开学后的开会才开始重视，吐槽宣传单和社服，等到招新前几天才定稿。去年有印卡贴，很多新生也是蛮喜欢的，这种宣传方式其实很赞，但是今年招新前两天我才想起来这事，原本一方暑假就有提过的事，当时并没有在意，导致今年印卡贴来不及了。同样是那个晚上，服务器出了问题，烦得焦头烂额的时候想起来面试教室没有申请，31栋118这个比较抢手的教室，幸运的是在我们希望的面试时间教室没有被占。&lt;/p&gt;
+&lt;h4 id=&quot;招新期间&quot;&gt;招新期间&lt;/h4&gt;&lt;p&gt;由于宣传单和社服在招新前几天才定稿，所以要在招新前加急印宣传单和社服，社服加急邮费吓人，所幸最后在招新前送到了学校。最坑爹的就是宣传单了，淘宝印肯定来不及，所以就找学校附近的店印，店里要发到工厂印再寄过来，结果招新前一天晚上才知道宣传单还没有印，要求加急的话又要加钱，被逼无奈只好加急，抱着宣传单到不了的心态，带上了前两个学期的宣传单去招新，幸运的是早上宣传单到了。灾难远没有结束，上课回来，第一波新生已经去食堂了，仅仅过了一波新生，1000份宣传单大概只剩300张了，接下来的招新就只能省着发传单。宣传单是临时改的封面，没有经过周密的考虑，大家都只是觉得好看，就印了，快发完了才发现，整个宣传单上竟然没有计算机紧急响应组几个字，只有CERT，然而新生并不知道CERT是啥，光看CERT也看不出我们是个计算机社团，这也许是今年招新的时候维修部人数惨淡的原因。宣传单定稿前，在线报名的网站出现了问题，准备修复的时候发现服务器也出现了问题，导致急着定稿的传单没有办法加上cert在线报名的网址，而是改成了比较麻烦的加群的方式，很多新生拿了传单不知道改怎么报名，加群的也很少。&lt;/p&gt;
+&lt;h4 id=&quot;笔试面试&quot;&gt;笔试面试&lt;/h4&gt;&lt;p&gt;说实话今年笔试题目真的挺难的(相对去年来说)，很多人一拿到卷子就不想写了，维修部白卷很多，观察了下，技术的人还是很积极很努力的在写，产品人也好像还行，这大概也是这两年社团方向转变的结果吧，以产品为导向，技术和产品是社团发展壮大的基础，这是好事，维修部确实也不需要太多人了，但是作为一个维修部出来的人看见昔日辉煌的维修部变得这么萧条还是觉得很难过。面试比去年似乎效果好很多，去年我们几个面技术，没有经过太多的讨论就临时上阵，结果面试就随便问了几句话就不知道问什么，就让新生走了，导致人都对不上号，今年技术这边来帮忙面试的人很多，新生也比较有秩序(可能是因为题目太多都还想多做几道)，观察了下每个人面试都挺久的，面完后也都做了简短的记录，这大概是这次招新唯一一个完美的过程了吧。&lt;/p&gt;
+&lt;h4 id=&quot;总结+反省&quot;&gt;总结+反省&lt;/h4&gt;&lt;p&gt;在任期间的第一次招新，并不完美，突发情况很多，很多事情不到紧急关头都想不到，我的责任最大，原因有很多。我自以为自己是个很谨慎的人但是实际上并不算是，可能跟平时不愿写写备忘录之类的东西有关，总觉得自己记性好能记住。现在组里没有李董这样的能够一个人管理整个社团杂事的人，要想管好整个社团还是要好好改掉自己的坏毛病，增强下自己的管理能力，也算是为进入社会做做准备吧，之所以竞选组长其实也就是想锻炼下自己的能力，如果单纯的想搞技术当初也就不应该竞选了。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;写这篇文章主要是为了回顾下这次招新的过程，把招新的没做好的地方都记录下来，给以后的组长吸取点教训吧，之后还会总结下注意事项。忙完了该好好学习了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;招新对一个社团来说很大程度上决定了社团一年的发展，15年的秋季招新不算太差，但是相对14年的118爆满来说，差距显而易见。&lt;/p&gt;
+&lt;h4 id=&quot;前期准备&quot;&gt;前期准备&lt;/h4&gt;&lt;p&gt;前期准备没有做好也是这次招新的主要问题，我们虽然更改了网页，推出了app，但是宣传的效果不
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>node.js完成简单爬虫</title>
+    <link href="http://www.halamyc.me/2015/08/24/node-js%E5%AE%8C%E6%88%90%E7%AE%80%E5%8D%95%E7%88%AC%E8%99%AB/"/>
+    <id>http://www.halamyc.me/2015/08/24/node-js完成简单爬虫/</id>
+    <published>2015-08-24T15:11:57.000Z</published>
+    <updated>2015-08-25T06:41:08.000Z</updated>
+    
+    <content type="html">&lt;p&gt;以下为使用node.js完成&lt;a href=&quot;http://jwc.ecjtu.jx.cn/mis_o/main.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;华东交通大学教务处&lt;/a&gt;成绩爬虫的教程，需要使用到三个node.js的开源库&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/strongloop/express&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;express&lt;/a&gt;——node.js应用最广泛的web框架&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/magicdawn/superagent-charset&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;superagent-charset&lt;/a&gt;——可以发起get，post等请求，该框架是superagent的扩展，支持中文&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/cheeriojs/cheerio&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;cheerio&lt;/a&gt;——可以理解成一个 Node.js 版的 jquery&lt;/p&gt;
+&lt;p&gt;开发工具：&lt;a href=&quot;http://www.charlesproxy.com&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Charles&lt;/a&gt;——Mac下用于获取和调试网络请求的利器，windows用户可以使用wireshark代替.&lt;/p&gt;
+&lt;p&gt;本文默认你已经搭建好了开发环境，如果没有搭建好环境可以参考&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/00143450141843488beddae2a1044cab5acb5125baf0882000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;安装Node.js和npm&lt;/a&gt;,开发环境为OSX， 不推荐在windows下开发&lt;em&gt;(:3 」∠) &lt;/em&gt;&lt;/p&gt;
+&lt;h3 id=&quot;项目配置&quot;&gt;项目配置&lt;/h3&gt;&lt;p&gt;打下终端，新建一个repitle文件夹并初始化项目&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ &lt;span class=&quot;built_in&quot;&gt;mkdir&lt;/span&gt; reptile &amp;amp;&amp;amp; &lt;span class=&quot;built_in&quot;&gt;cd&lt;/span&gt; reptile
+$ npm init
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时候会要你输入一些信息，一直回车使用默认的就行.&lt;br&gt;接下来安装需要的第三方库&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ npm &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; express superagent-&lt;span class=&quot;keyword&quot;&gt;charset&lt;/span&gt; cheerio &lt;span class=&quot;comment&quot;&gt;--save&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这时候文件夹中就会多一个&lt;code&gt;node_modules&lt;/code&gt;文件夹，配置就完成了。&lt;/p&gt;
+&lt;h3 id=&quot;模块的使用&quot;&gt;模块的使用&lt;/h3&gt;&lt;p&gt;复制以下代码&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; express = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;express&#39;&lt;/span&gt;)
+&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; superagent = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;superagent-charset&#39;&lt;/span&gt;)
+&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cheerio = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&#39;cheerio&#39;&lt;/span&gt;)
+
+&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = express()
+app.get(&lt;span class=&quot;string&quot;&gt;&#39;/&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;req, res&lt;/span&gt;)&lt;/span&gt;{
+
+}
+
+app.listen(&lt;span class=&quot;number&quot;&gt;3000&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这样就完成了模块的使用，并且监听了3000端口&lt;/p&gt;
+&lt;h3 id=&quot;使用工具&quot;&gt;使用工具&lt;/h3&gt;&lt;p&gt;由于该网站需要登录，所以需要知道提交的参数，以及设置cookie，使用Charles可以方便的参看参数&lt;br&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/08/25/55db4318c4bad.png&quot; alt=&quot;QQ20150825-1@2x.png&quot; title=&quot;QQ20150825-1@2x.png&quot;&gt;&lt;br&gt;如图所示，除了表单里要填的user和pass，还有一个Submit参数&lt;br&gt;同样查询页面通过学号查询的参数如下&lt;br&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/08/25/55db4434975bb.png&quot; alt=&quot;QQ20150825-2@2x.png&quot; title=&quot;QQ20150825-2@2x.png&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;模拟登录&quot;&gt;模拟登录&lt;/h3&gt;&lt;p&gt;通过使用superagent模拟登录网页，此时会生成一个cookie，获取该cookie，查询成绩时使用改cookie就可以获取到网页代码了,具体代码如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; studentid = req.query.studentid
+&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; term = req.query.term
+superagent
+    .post(&lt;span class=&quot;string&quot;&gt;&#39;http://jwc.ecjtu.jx.cn/mis_o/login.php&#39;&lt;/span&gt;)
+    .send(&lt;span class=&quot;string&quot;&gt;&quot;user=jwc&amp;amp;pass=jwc&amp;amp;Submit=%CC%E1%BD%&quot;&lt;/span&gt;)
+    .end(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(err, sres)&lt;/span&gt;&lt;/span&gt;{
+        &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; cookie = sres.header[&lt;span class=&quot;string&quot;&gt;&#39;set-cookie&#39;&lt;/span&gt;]
+        console.log(cookie);
+
+        superagent
+        .post(&lt;span class=&quot;string&quot;&gt;&#39;http://jwc.ecjtu.jx.cn/mis_o/query.php&#39;&lt;/span&gt;)
+        .send(&lt;span class=&quot;string&quot;&gt;&quot;StuID=&quot;&lt;/span&gt; + studentid)
+        .send(&lt;span class=&quot;string&quot;&gt;&quot;Term=&quot;&lt;/span&gt; + term)
+        .charset(&lt;span class=&quot;string&quot;&gt;&#39;gb2312&#39;&lt;/span&gt;)
+        .&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;&quot;Cookie&quot;&lt;/span&gt;, cookie)
+        .end(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(err,sres)&lt;/span&gt;&lt;/span&gt;{
+        })
+
+    })
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;抓取成绩&quot;&gt;抓取成绩&lt;/h3&gt;&lt;p&gt;刚刚的代码中已经获取了成绩显示页面的代码了，接下来就需要使用cheerio抓取所需要的信息了，cheerio跟jquery的使用方式差不多，关于jquery选择器这块可以查看&lt;a href=&quot;http://www.liaoxuefeng.com/wiki/001434446689867b27157e896e74d51a89c25cc8b43bdb3000/0014345004443979a29e0e0be054e75a652613f132f7f0b000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;选择器&lt;/a&gt;&lt;br&gt;具体代码如下:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var items = []
+            var $ = cheerio.load(sres.text)
+            &lt;span class=&quot;variable&quot;&gt;$(&lt;/span&gt;&lt;span class=&quot;string&quot;&gt;&#39;table&#39;&lt;/span&gt;).&lt;span class=&quot;keyword&quot;&gt;last&lt;/span&gt;().children().&lt;span class=&quot;keyword&quot;&gt;each&lt;/span&gt;(function(idx, elements){
+                &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(idx===&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;
+                var &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt; = &lt;span class=&quot;variable&quot;&gt;$(&lt;/span&gt;elements).children()
+                items.&lt;span class=&quot;keyword&quot;&gt;push&lt;/span&gt;({
+                    term: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(0)&lt;/span&gt;.text(),
+                    id: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(1)&lt;/span&gt;.text(),
+                    name: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(2)&lt;/span&gt;.text(),
+                    course: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(3)&lt;/span&gt;.text(),
+                    isN: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(4)&lt;/span&gt;.text(),
+                    credit: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(5)&lt;/span&gt;.text(),
+                    score: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(6)&lt;/span&gt;.text(),
+                    score1: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(7)&lt;/span&gt;.text(),
+                    score2: &lt;span class=&quot;variable&quot;&gt;$elem&lt;/span&gt;.e&lt;span class=&quot;string&quot;&gt;q(8)&lt;/span&gt;.text()
+                })
+            })
+            res.&lt;span class=&quot;keyword&quot;&gt;send&lt;/span&gt;(items)
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;运行项目&quot;&gt;运行项目&lt;/h3&gt;&lt;p&gt;打开终端cd到项目文件夹&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;node app.js
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;打开浏览器，输入&lt;a href=&quot;http://localhost:3000/?studentid=2013xxxxxx&amp;amp;term=2014.2&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:3000/?studentid=2013xxxxxx&amp;amp;term=2014.2&lt;/a&gt;  就可以看到结果了,返回的数据格式为JSON，移动端可以获取到数据解析后就可以使用&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以下为使用node.js完成&lt;a href=&quot;http://jwc.ecjtu.jx.cn/mis_o/main.php&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;华东交通大学教务处&lt;/a&gt;成绩爬虫的教程，需要使用到三个node.js的开源库&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="node.js" scheme="http://www.halamyc.me/tags/node-js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开发键盘挡住输入框的解决方案</title>
+    <link href="http://www.halamyc.me/2015/08/16/iOS%E5%BC%80%E5%8F%91%E9%94%AE%E7%9B%98%E6%8C%A1%E4%BD%8F%E8%BE%93%E5%85%A5%E6%A1%86%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://www.halamyc.me/2015/08/16/iOS开发键盘挡住输入框的解决方案/</id>
+    <published>2015-08-16T06:10:36.000Z</published>
+    <updated>2015-08-25T06:40:56.000Z</updated>
+    
+    <content type="html">&lt;p&gt;iOS开发中，经常会碰到键盘弹出以后，挡住输入框，导致无法看见自己输入了什么的问题，百度的解决办法很多，但是很多并不好用，以下是我的解决思路：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;由于iOS8之后支持第三方键盘，所以键盘的高度不能固定，所以需要监听键盘弹出通知并获取当前键盘高度，经过我的测试，TextField的&lt;em&gt;textFieldDidBeginEditing&lt;/em&gt;方法会早于键盘弹出的通知执行，所以解决问题的关键代码需要放在通知的方法中。&lt;/p&gt;
+&lt;p&gt;由于刚好解决这个问题的时候项目使用的时Swift语言，所以以下代码全部都是使用Swift，需要使用OC的用OC重写一遍就行。&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在&lt;em&gt;viewWillAppear&lt;/em&gt;和&lt;em&gt;viewWillDisappear&lt;/em&gt;中注册通知，监听键盘弹出和消失&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;viewWillAppear&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(animated: Bool)&lt;/span&gt;&lt;/span&gt; {
+    &lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().addObserver(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, selector: &lt;span class=&quot;string&quot;&gt;&quot;keyboardWillShow:&quot;&lt;/span&gt;, name: &lt;span class=&quot;type&quot;&gt;UIKeyboardWillShowNotification&lt;/span&gt;, object: &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)
+    &lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().addObserver(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, selector: &lt;span class=&quot;string&quot;&gt;&quot;keyboardWillHidden:&quot;&lt;/span&gt;, name: &lt;span class=&quot;type&quot;&gt;UIKeyboardWillHideNotification&lt;/span&gt;, object: &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)
+}
+&lt;span class=&quot;keyword&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;viewWillDisappear&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(animated: Bool)&lt;/span&gt;&lt;/span&gt; {
+    &lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().removeObserver(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, name: &lt;span class=&quot;type&quot;&gt;UIKeyboardWillShowNotification&lt;/span&gt;, object: &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)
+    &lt;span class=&quot;type&quot;&gt;NSNotificationCenter&lt;/span&gt;.defaultCenter().removeObserver(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, name: &lt;span class=&quot;type&quot;&gt;UIKeyboardWillHideNotification&lt;/span&gt;, object: &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;)
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将控制器设置为输入框TextField的delegate，并在完成一下三个代理方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;textFieldDidBeginEditing&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(textField: UITextField)&lt;/span&gt;&lt;/span&gt; {
+    editTextField = textField
+}
+
+&lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;textFieldShouldReturn&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(textField: UITextField)&lt;/span&gt;&lt;/span&gt; -&amp;gt; &lt;span class=&quot;type&quot;&gt;Bool&lt;/span&gt; {
+    textField.resignFirstResponder()
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;true&lt;/span&gt;
+}
+
+&lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;textFieldDidEndEditing&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(textField: UITextField)&lt;/span&gt;&lt;/span&gt; {
+    editTextField = &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在键盘弹出时，textField的textFieldDidBeginEditing方法会比键盘弹出的通知更早执行，所以创建一个实例变量获取到当前正在输入的TextField。&lt;/p&gt;
+&lt;p&gt;写两个方法keyboardWillShow:和keyboardWillHidden:分别接收键盘弹出和键盘隐藏的通知。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;keyboardWillShow&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(aNotification: NSNotification)&lt;/span&gt;&lt;/span&gt;{
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; userInfo: &lt;span class=&quot;type&quot;&gt;NSDictionary&lt;/span&gt;? = aNotification.userInfo
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; aValue: &lt;span class=&quot;type&quot;&gt;NSValue&lt;/span&gt;? = userInfo?.objectForKey(&lt;span class=&quot;type&quot;&gt;UIKeyboardFrameEndUserInfoKey&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;NSValue&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; keyboardRect = aValue?.&lt;span class=&quot;type&quot;&gt;CGRectValue&lt;/span&gt;()
+    keyboardHeight = keyboardRect?.size.height
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; frame = editTextField!.frame
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; offset = frame.origin.y + &lt;span class=&quot;number&quot;&gt;32&lt;/span&gt; - (&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.frame.size.height - keyboardHeight!)
+    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;0.3&lt;/span&gt;, animations: { () -&amp;gt; &lt;span class=&quot;type&quot;&gt;Void&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;
+        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; offset &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;{
+            &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.frame = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, -offset, &lt;span class=&quot;type&quot;&gt;SCREEN_WIDTH&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;SCREEN_HEIGHT&lt;/span&gt;)
+        }
+    })
+}
+
+&lt;span class=&quot;func&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;keyboardWillHidden&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(notification: NSNotification)&lt;/span&gt;&lt;/span&gt;{
+    &lt;span class=&quot;type&quot;&gt;UIView&lt;/span&gt;.animateWithDuration(&lt;span class=&quot;number&quot;&gt;0.3&lt;/span&gt;, animations: { () -&amp;gt; &lt;span class=&quot;type&quot;&gt;Void&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;
+        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view.frame = &lt;span class=&quot;type&quot;&gt;CGRectMake&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;SCREEN_WIDTH&lt;/span&gt;, &lt;span class=&quot;type&quot;&gt;SCREEN_HEIGHT&lt;/span&gt;)
+    })
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;将视图向上移动，键盘就不会挡住输入框了，使用动画会使整个过程更加流畅，这里需要注意的是，如果你的TextField的父视图不是self.view，以上代码可能不会如你所愿的执行，这里需要将keyboardWillShow中获取editTextField的方法改为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; frame&lt;/span&gt; = editTextField?.convertRect(editTextField?.frame, toView: self.view)
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;p&gt;使用这个方法可以一定程度上解决问题，但是这个方法的缺点在于，如果控制器有导航栏的话，导航栏会被一起上移，所以更好的解决办法是通过UIScrollView的上下滚动来解决这个问题，方法差不多，大家如果有需求可以试试&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;iOS开发中，经常会碰到键盘弹出以后，挡住输入框，导致无法看见自己输入了什么的问题，百度的解决办法很多，但是很多并不好用，以下是我的解决思路：&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;由于iOS8之后支持第三方键盘，所以键盘的高度不能固定，所以需要监听键盘弹出通知并获取当前键盘高度，经过我
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://www.halamyc.me/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Swift+AFNetworking获取网络数据</title>
+    <link href="http://www.halamyc.me/2015/08/01/Swift-AFNetworking%E8%8E%B7%E5%8F%96%E7%BD%91%E7%BB%9C%E6%95%B0%E6%8D%AE/"/>
+    <id>http://www.halamyc.me/2015/08/01/Swift-AFNetworking获取网络数据/</id>
+    <published>2015-08-01T11:36:35.000Z</published>
+    <updated>2015-08-25T06:41:15.000Z</updated>
+    
+    <content type="html">&lt;p&gt;苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言&lt;br&gt;AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问&lt;a href=&quot;https://github.com/AFNetworking/AFNetworking&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;AFNetworking的github&lt;/a&gt;&lt;br&gt;通过这篇文章你可以学习到如何使用Swift+AFNetworking获取网络数据&lt;/p&gt;
+&lt;h5 id=&quot;第一步，使用CocoaPods导入AFNetworking&quot;&gt;第一步，使用CocoaPods导入AFNetworking&lt;/h5&gt;&lt;hr&gt;
+&lt;p&gt;CocoaPods是一个Swift和Objective-c的cocoa项目的第三方库的管理工具，iOS和OS X程序员都很有必要掌握这个工具的使用方法，具体使用方法可以参考&lt;a href=&quot;http://code4app.com/article/cocoapods-install-usage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CocoaPods安装和使用教程&lt;/a&gt;,文章中就使用了AFNetworking，可见这个库的重要程度。&lt;/p&gt;
+&lt;h5 id=&quot;第二步，新建Swift与OC混编所需要的桥接文件&quot;&gt;第二步，新建Swift与OC混编所需要的桥接文件&lt;/h5&gt;&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/08/16/55d0025634ace.png&quot; alt=&quot;QQ20150816-2@2x.png&quot; title=&quot;QQ20150816-2@2x.png&quot;&gt;&lt;br&gt;创建一个.h文件，命名随便，我这里命名为&lt;code&gt;Bridging-header.h&lt;/code&gt;&lt;br&gt;接下来需要在bulid settings中设置桥接文件&lt;br&gt;&lt;img src=&quot;https://ooo.0o0.ooo/2015/08/16/55d0067f78225.png&quot; alt=&quot;QQ20150816-4@2x.png&quot; title=&quot;QQ20150816-4@2x.png&quot;&gt;&lt;br&gt;路径为项目名称/文件名&lt;br&gt;如果觉得麻烦的话，在项目中创建一个OC文件，xcode为自动帮你生成一个桥接文件并设置好路径&lt;br&gt;最后，打开桥接文件，在文件中导入AFNetworking就行了&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;#import &amp;lt;AFNetworking/AFNetworking.h&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&quot;第三步，在代码中使用AFNetworking&quot;&gt;第三步，在代码中使用AFNetworking&lt;/h5&gt;&lt;hr&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; manager = AFHTTPRequestOperationManager()
+ manager.GET&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;string&quot;&gt;&quot;your api&quot;&lt;/span&gt;, parameters: [], success: { (operation:AFHTTPRequestOperation!, response: AnyObject!) -&amp;gt; Void &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;
+        })&lt;/span&gt; { &lt;span class=&quot;params&quot;&gt;(operation: AFHTTPRequestOperation!, error: NSError!)&lt;/span&gt; -&amp;gt;&lt;/span&gt; Void &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt;
+   }
+&lt;/code&gt;&lt;/pre&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;苹果14年推出Swift这门语言时吸引了众多开发者的目光，15年wwdc大会上将Swift开源后，这门语言注定会在几年后成为一门伟大的语言，也会成为iOS开发的主流语言&lt;br&gt;AFNetworking是iOS开发中最常用的第三方库之一，有关AFNetworking可以访问&lt;
+    
+    </summary>
+    
+    
+      <category term="Swift" scheme="http://www.halamyc.me/tags/Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AFNetworking使用时text/html错误</title>
+    <link href="http://www.halamyc.me/2015/08/01/AFNetworking%E4%BD%BF%E7%94%A8%E6%97%B6text-html%E9%94%99%E8%AF%AF/"/>
+    <id>http://www.halamyc.me/2015/08/01/AFNetworking使用时text-html错误/</id>
+    <published>2015-08-01T11:33:22.000Z</published>
+    <updated>2015-08-25T06:39:53.000Z</updated>
+    
+    <content type="html">&lt;p&gt;在使用AFNetworking时可能会碰到以下错误&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NSLocalizedDescription=Request failed: unacceptable content-&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;type&lt;/span&gt;: &lt;span class=&quot;title&quot;&gt;text&lt;/span&gt;/&lt;span class=&quot;title&quot;&gt;html&lt;/span&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;错误的原因是，AFNetWorking的JSON解析默认库是使用的AFJSONRequestOperation模式，只支持text/json，application/json，text/javascript&lt;/p&gt;
+&lt;h5 id=&quot;解决办法&quot;&gt;解决办法&lt;/h5&gt;&lt;hr&gt;
+&lt;p&gt;在导入的AFNetworking文件夹中，找到&lt;code&gt;AFURLResponseSerialization.m&lt;/code&gt;,打开该文件，在&lt;strong&gt;第222行&lt;/strong&gt;左右（具体以实际为准），有以下代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;variable&quot;&gt;.acceptableContentTypes&lt;/span&gt; = [&lt;span class=&quot;built_in&quot;&gt;NSSet&lt;/span&gt; setWithObjects:&lt;span class=&quot;string&quot;&gt;@&quot;application/json&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;@&quot;text/json&quot;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;@&quot;text/javascript&quot;&lt;/span&gt;, &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;];
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在这一行代码中添加text/html,就可以解决这个问题。代码如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;self.acceptableContentTypes = [NSSet setWithObjects:&lt;span class=&quot;variable&quot;&gt;@&quot;&lt;/span&gt;application/json&lt;span class=&quot;string&quot;&gt;&quot;, @&quot;&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;text&lt;/span&gt;/json&lt;span class=&quot;string&quot;&gt;&quot;, @&quot;&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;text&lt;/span&gt;/javascript&lt;span class=&quot;string&quot;&gt;&quot;,@&quot;&lt;/span&gt;&lt;span class=&quot;keyword&quot;&gt;text&lt;/span&gt;/html&lt;span class=&quot;string&quot;&gt;&quot;, nil];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以上方法解决了我的问题，但是在解决问题时发现其他人有另一种解决方法：&lt;/p&gt;
+&lt;h5 id=&quot;另一种方法&quot;&gt;另一种方法&lt;/h5&gt;&lt;hr&gt;
+&lt;p&gt;在使用AFNetworking时，加入如下代码:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+manager.responseSerializer = [AFHTTPResponseSerializer serializer]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这种方法我在使用时可以正常运行但是不是正确解析json数据，大家可以两个都试一试。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用AFNetworking时可能会碰到以下错误&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NSLocalizedDescription=Request failed: unacceptable content-&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;key
+    
+    </summary>
+    
+    
+      <category term="iOS" scheme="http://www.halamyc.me/tags/iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Blog搭建完成啦！</title>
+    <link href="http://www.halamyc.me/2015/07/21/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E5%AE%8C%E6%88%90%E5%95%A6%EF%BC%81/"/>
+    <id>http://www.halamyc.me/2015/07/21/个人博客搭建完成啦！/</id>
+    <published>2015-07-21T04:10:28.000Z</published>
+    <updated>2015-07-21T10:41:56.000Z</updated>
+    
+    <content type="html">&lt;p&gt;这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是我的Blog，以后会在这里记录下自己在学习和做项目过程中遇到的值得记录的东西&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
