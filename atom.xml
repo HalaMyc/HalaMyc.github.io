@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.halamyc.me/"/>
-  <updated>2016-04-23T05:37:08.000Z</updated>
+  <updated>2016-04-23T05:38:30.000Z</updated>
   <id>http://www.halamyc.me/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://www.halamyc.me/2016/04/23/%E4%BD%BF%E7%94%A8visual-studio-code%E5%86%99node-js/"/>
     <id>http://www.halamyc.me/2016/04/23/使用visual-studio-code写node-js/</id>
     <published>2016-04-23T03:46:42.000Z</published>
-    <updated>2016-04-23T05:37:08.000Z</updated>
+    <updated>2016-04-23T05:38:30.000Z</updated>
     
-    <content type="html">&lt;p&gt;偶然在论坛看到&lt;a href=&quot;https://cnodejs.org/topic/55f673920209f4f25879f418&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇文章&lt;/a&gt;，介绍了visual studio code以及如何使用vsc写node程序，觉得ms出的这个编译器很强大，于是下下来试试，但是按照这篇文章的教程，并没有看到想要的结果，代码提示什么的完全没有。折腾了好一会儿，才找到了正确的方法。&lt;br&gt;&lt;!----&gt;&lt;br&gt;vsc的代码提示是通过结合tsd文件完成的，之前的版本(至少0.8之前)，都是通过全局安装tsd，再通过tsd安装各模块的.d.ts文件，使得vsc能够进行代码提示，所以网上的各种教程也多是使用这种方法，但是最新的1.0的vsc已经将tsd启用了，使用typing来安装.d.ts文件，实质是一样的，不过typing更加方便管理，官方的FAQ在&lt;a href=&quot;https://github.com/DefinitelyTyped/tsd/issues/269&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+    <content type="html">&lt;p&gt;偶然在论坛看到&lt;a href=&quot;https://cnodejs.org/topic/55f673920209f4f25879f418&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇文章&lt;/a&gt;，介绍了visual studio code以及如何使用vsc写node程序，觉得ms出的这个编译器很强大，于是下下来试试，但是按照这篇文章的教程，并没有看到想要的结果，代码提示什么的完全没有。折腾了好一会儿，才找到了正确的方法。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;vsc的代码提示是通过结合tsd文件完成的，之前的版本(至少0.8之前)，都是通过全局安装tsd，再通过tsd安装各模块的.d.ts文件，使得vsc能够进行代码提示，所以网上的各种教程也多是使用这种方法，但是最新的1.0的vsc已经将tsd启用了，使用typing来安装.d.ts文件，实质是一样的，不过typing更加方便管理，官方的FAQ在&lt;a href=&quot;https://github.com/DefinitelyTyped/tsd/issues/269&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id=&quot;创建项目&quot;&gt;创建项目&lt;/h3&gt;&lt;p&gt;首先我们需要创建项目和依赖&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;mkdir vsctest &amp;amp;&amp;amp; cd vsctest
@@ -52,7 +52,7 @@ typings install express serve-&lt;span class=&quot;keyword&quot;&gt;static&lt;/s
     
     <summary type="html">
     
-      &lt;p&gt;偶然在论坛看到&lt;a href=&quot;https://cnodejs.org/topic/55f673920209f4f25879f418&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇文章&lt;/a&gt;，介绍了visual studio code以及如何使用vs
+      &lt;p&gt;偶然在论坛看到&lt;a href=&quot;https://cnodejs.org/topic/55f673920209f4f25879f418&quot;&gt;一篇文章&lt;/a&gt;，介绍了visual studio code以及如何使用vsc写node程序，觉得ms出的这个编译器很强大，于是下下来试试，但是按照这篇文章的教程，并没有看到想要的结果，代码提示什么的完全没有。折腾了好一会儿，才找到了正确的方法。&lt;br&gt;
     
     </summary>
     
