@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.halamyc.me/"/>
-  <updated>2016-04-21T09:24:39.000Z</updated>
+  <updated>2016-04-23T05:37:08.000Z</updated>
   <id>http://www.halamyc.me/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用visual studio code写node.js</title>
+    <link href="http://www.halamyc.me/2016/04/23/%E4%BD%BF%E7%94%A8visual-studio-code%E5%86%99node-js/"/>
+    <id>http://www.halamyc.me/2016/04/23/使用visual-studio-code写node-js/</id>
+    <published>2016-04-23T03:46:42.000Z</published>
+    <updated>2016-04-23T05:37:08.000Z</updated>
+    
+    <content type="html">&lt;p&gt;偶然在论坛看到&lt;a href=&quot;https://cnodejs.org/topic/55f673920209f4f25879f418&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇文章&lt;/a&gt;，介绍了visual studio code以及如何使用vsc写node程序，觉得ms出的这个编译器很强大，于是下下来试试，但是按照这篇文章的教程，并没有看到想要的结果，代码提示什么的完全没有。折腾了好一会儿，才找到了正确的方法。&lt;br&gt;&lt;!----&gt;&lt;br&gt;vsc的代码提示是通过结合tsd文件完成的，之前的版本(至少0.8之前)，都是通过全局安装tsd，再通过tsd安装各模块的.d.ts文件，使得vsc能够进行代码提示，所以网上的各种教程也多是使用这种方法，但是最新的1.0的vsc已经将tsd启用了，使用typing来安装.d.ts文件，实质是一样的，不过typing更加方便管理，官方的FAQ在&lt;a href=&quot;https://github.com/DefinitelyTyped/tsd/issues/269&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&quot;创建项目&quot;&gt;创建项目&lt;/h3&gt;&lt;p&gt;首先我们需要创建项目和依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;mkdir vsctest &amp;amp;&amp;amp; cd vsctest
+&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;npm init
+&lt;span class=&quot;variable&quot;&gt;$ &lt;/span&gt;npm install express utility --save
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里我们创建一个express的项目来说明，创建的创始很多，用自己习惯的就可以。&lt;/p&gt;
+&lt;h3 id=&quot;添加jsconfig-json文件&quot;&gt;添加jsconfig.json文件&lt;/h3&gt;&lt;p&gt;这是非常重要的一步，之前我试了各种方法没有成功就是因为没有这一步。&lt;/p&gt;
+&lt;p&gt;我们可以手动创建一个文件名为jsconfig.json的文件，这个文件的目的是让VS代码知道它应该把这个根目录下的所有文件作为同一项目的一部分。文件内容如下&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+&quot;&lt;span class=&quot;attribute&quot;&gt;compilerOptions&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;{
+    &quot;&lt;span class=&quot;attribute&quot;&gt;target&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;es5&quot;&lt;/span&gt;&lt;/span&gt;,
+    &quot;&lt;span class=&quot;attribute&quot;&gt;module&lt;/span&gt;&quot;: &lt;span class=&quot;value&quot;&gt;&lt;span class=&quot;string&quot;&gt;&quot;commonjs&quot;&lt;/span&gt;
+&lt;/span&gt;}
+&lt;/span&gt;}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;target是告诉vsc你使用的是符合esX规范的代码，以及使用commonjs模块。&lt;br&gt;更多关于jsconfig.json文件的可以看&lt;a href=&quot;https://code.visualstudio.com/docs/languages/javascript&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;br&gt;这个文件还可以告诉vsc在编译时排除哪些模块，比如node的node_module，在项目比较大时非常有用，vsc因为推荐大家使用jsconfig.json文件，所以当你打开一个js文件时，右下角会有一个灯泡提示你添加jsconfig.json文件，点击就可以自动添加了，非常方便。&lt;/p&gt;
+&lt;h3 id=&quot;安装typings&quot;&gt;安装typings&lt;/h3&gt;&lt;p&gt;最后一步，安装前文中提到的typings。&lt;/p&gt;
+&lt;p&gt;在这之前，你可以创建一个app.js文件，并在文件中输入node的全局变量&lt;code&gt;__dirname&lt;/code&gt;,鼠标移动到&lt;code&gt;__dirname&lt;/code&gt;上会提示你这是一个&lt;code&gt;any&lt;/code&gt;类型的文件。&lt;br&gt;下面我来安装typings&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm &lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; -g typings
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;全局安装完成后，到你的项目根目录&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;typings install node --&lt;span class=&quot;built_in&quot;&gt;ambient&lt;/span&gt;
+typings install express serve-&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt; express-serve-&lt;span class=&quot;keyword&quot;&gt;static&lt;/span&gt;-core --&lt;span class=&quot;built_in&quot;&gt;ambient&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;完成后你会发现你的项目目录中多了一些东西。&lt;br&gt;这时候你再把鼠标移动到&lt;code&gt;__dirname&lt;/code&gt;上，如果发现提示这是一个&lt;code&gt;string&lt;/code&gt;类型的变量，就说明成功了。&lt;br&gt;如果需要安装其他依赖的代码提示，方法一样，typings支持很多node的库，支持的库具体可以看&lt;a href=&quot;https://github.com/DefinitelyTyped/DefinitelyTyped&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;。&lt;br&gt;比如我想添加&lt;code&gt;cheerio&lt;/code&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;typings &lt;span class=&quot;operator&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;install&lt;/span&gt; cheerio &lt;span class=&quot;comment&quot;&gt;--ambient&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&quot;debug&quot;&gt;debug&lt;/h3&gt;&lt;p&gt;vsc调试代码也非常方便，按F5，或者左侧的虫子，就可以进行调试，第一次调试会创建&lt;code&gt;launch.json&lt;/code&gt;文件用于修改启动配置&lt;br&gt;&lt;img src=&quot;https://code.visualstudio.com/images/nodejs_launchjson.png&quot; alt=&quot;image&quot;&gt;&lt;br&gt;这里我们需要修改&lt;code&gt;program&lt;/code&gt;参数为&lt;code&gt;&amp;quot;${workspaceRoot}/app.js&amp;quot;&lt;/code&gt;，再启动就可以了。&lt;/p&gt;
+&lt;p&gt;参考链接在&lt;a href=&quot;https://code.visualstudio.com/Docs/runtimes/nodejs&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;偶然在论坛看到&lt;a href=&quot;https://cnodejs.org/topic/55f673920209f4f25879f418&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;一篇文章&lt;/a&gt;，介绍了visual studio code以及如何使用vs
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>两次电话面试后的总结</title>
