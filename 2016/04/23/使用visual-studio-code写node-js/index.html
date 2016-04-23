@@ -4,7 +4,7 @@
 <pre><code><span class="variable">$ </span>mkdir vsctest &amp;&amp; cd vsctest
 <span class="variable">$ </span>npm init
 <span class="variable">$ </span>npm install express utility --save
-</code></pre><p>这里我们创建一个express的项目来说明，创建的创始很多，用自己习惯的就可以。</p>
+</code></pre><p>这里我们创建一个express的项目来说明，创建的方式很多，用自己习惯的就可以。</p>
 <h3 id="添加jsconfig-json文件">添加jsconfig.json文件</h3><p>这是非常重要的一步，之前我试了各种方法没有成功就是因为没有这一步。</p>
 <p>我们可以手动创建一个文件名为jsconfig.json的文件，这个文件的目的是让VS代码知道它应该把这个根目录下的所有文件作为同一项目的一部分。文件内容如下</p>
 <pre><code>{
@@ -13,7 +13,7 @@
     "<span class="attribute">module</span>": <span class="value"><span class="string">"commonjs"</span>
 </span>}
 </span>}
-</code></pre><p>target是告诉vsc你使用的是符合esX规范的代码，以及使用commonjs模块。<br>更多关于jsconfig.json文件的可以看<a href="https://code.visualstudio.com/docs/languages/javascript" target="_blank" rel="external">这里</a>。<br>这个文件还可以告诉vsc在编译时排除哪些模块，比如node的node_module，在项目比较大时非常有用，vsc因为推荐大家使用jsconfig.json文件，所以当你打开一个js文件时，右下角会有一个灯泡提示你添加jsconfig.json文件，点击就可以自动添加了，非常方便。</p>
+</code></pre><p>target是告诉vsc你使用的是符合esX规范的代码，以及使用commonjs模块。<br>更多关于jsconfig.json文件的可以看<a href="https://code.visualstudio.com/docs/languages/javascript" target="_blank" rel="external">这里</a>。<br>这个文件还可以告诉vsc在编译时排除哪些模块，比如node的node_module，在项目比较大时非常有用，所以vsc也推荐大家使用jsconfig.json文件，所以当你打开一个js文件时，右下角会有一个灯泡提示你添加jsconfig.json文件，点击就可以自动添加了，非常方便。</p>
 <h3 id="安装typings">安装typings</h3><p>最后一步，安装前文中提到的typings。</p>
 <p>在这之前，你可以创建一个app.js文件，并在文件中输入node的全局变量<code>__dirname</code>,鼠标移动到<code>__dirname</code>上会提示你这是一个<code>any</code>类型的文件。<br>下面我来安装typings</p>
 <pre><code>npm <span class="keyword">install</span> -g typings
