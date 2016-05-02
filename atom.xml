@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.halamyc.me/"/>
-  <updated>2016-04-23T05:45:50.000Z</updated>
+  <updated>2016-05-02T03:58:29.000Z</updated>
   <id>http://www.halamyc.me/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>一周node学习笔记</title>
+    <link href="http://www.halamyc.me/2016/05/02/%E4%B8%80%E5%91%A8node%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://www.halamyc.me/2016/05/02/一周node学习笔记/</id>
+    <published>2016-05-02T02:29:56.000Z</published>
+    <updated>2016-05-02T03:58:29.000Z</updated>
+    
+    <content type="html">&lt;p&gt;之前有接触过一点点Node.js，但是也就写了点爬虫玩玩就没继续了，这周发现用VSCode写Node很爽，配置完以后非常想动手写点什么，偶然发现了一个开源的node&lt;a href=&quot;https://github.com/nswbmw/N-blog/wiki/第1章--一个简单的博客&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客教程&lt;/a&gt;，于是这几天都在跟着写。不过教程里的各个模块的版本有点老，加上自己为了图方便有些东西比如数据库不想直接操作，视图模板也不想用&lt;code&gt;ejs&lt;/code&gt;，session不想直接存放在内存里打算用&lt;code&gt;redis&lt;/code&gt;，有很多东西就要自己摸索，遇到了很多的坑，也学到了很多新的东西，写一个笔记记录一下。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Session问题&quot;&gt;Session问题&lt;/h2&gt;&lt;p&gt;之前没有写过后台方面的东西，对session，cookie真的很难理解，仅仅是看看别人写的文章没办法搞懂。实战的时候结合别人的文章理解了一些。&lt;/p&gt;
+&lt;p&gt;由于Http协议是一个无状态协议，客户端每次发出请求时，下一次请求无法得知上一次请求所包含的状态数据，比如在一个网站登录之后，点击另一个页面跳转后如何让服务端知道你已经登录了呢？&lt;/p&gt;
+&lt;h4 id=&quot;cookie&quot;&gt;cookie&lt;/h4&gt;&lt;p&gt;cookie属于http协议的一部分，服务端负责发送cookie，浏览器负责保存cookie，每次发送请求时都是将cookie发送给服务器，这样服务器就能知道上一次请求的数据状态了。&lt;/p&gt;
+&lt;p&gt;express4.x版本之后不再直接包含cookie，操作 cookie 需要使用 &lt;code&gt;cookie-parser&lt;/code&gt;模块。&lt;/p&gt;
+&lt;h4 id=&quot;session&quot;&gt;session&lt;/h4&gt;&lt;p&gt;cookie 虽然很方便，但是使用 cookie 有一个很大的弊端，cookie 中的所有数据在客户端就可以被修改，数据非常容易被伪造，那么一些重要的数据就不能存放在 cookie 中了，而且如果 cookie 中数据字段太多会影响传输效率。为了解决这些问题，就产生了 session，session 中的数据是保留在服务器端的。&lt;/p&gt;
+&lt;p&gt;session其实就相当于一个特殊的容器，用于在服务器端保存数据。服务器端保存数据后会在cookie中设置一个sessionid，之后的每次请求服务器端通过检查cookie中的sessionid与seesion data关联，进行数据的保存和修改。&lt;/p&gt;
+&lt;p&gt;session可以存放在内存，cookie，redis缓存或者数据库中，redis比较推荐。&lt;/p&gt;
+&lt;h4 id=&quot;保持登录&quot;&gt;保持登录&lt;/h4&gt;&lt;p&gt;session_id 在 cookie 中的存储方式是 session cookie。即，当用户一关闭浏览器，浏览器 cookie 中的 session_id 字段就会消失。所以用户登录之后关闭了浏览器后，下次进入网站服务端还是不知道用户是谁，所以我们需要在cookie 中，也保存一份关于用户身份的信息。&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;signedCookies&lt;/code&gt;保存某一用户数据，如用户名，服务端通过用户名获取到用户数据。&lt;code&gt;signedCookies&lt;/code&gt;：给数据签名并保存在cookie中，比较安全。&lt;/p&gt;
+&lt;h2 id=&quot;response_header问题&quot;&gt;response header问题&lt;/h2&gt;&lt;p&gt;写用户登录注册的过程中遇到一个问题，&lt;code&gt;Can&amp;#39;t set headers after they are sent&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;这个问题是因为在Express中(其他语言或框架我不知道),你可以随便调用&lt;code&gt;res.setHeader&lt;/code&gt;，直到调用&lt;code&gt;res.writeHead&lt;/code&gt;，调用了&lt;code&gt;writeHead&lt;/code&gt;之后调用&lt;code&gt;write&lt;/code&gt;，最终调用&lt;code&gt;end&lt;/code&gt;。res进入完成状态。&lt;/p&gt;
+&lt;p&gt;res进入完成状态后就不能再改了，如果视图修改&lt;code&gt;header&lt;/code&gt;或其他，就会出现&lt;code&gt;Can&amp;#39;t set headers after they are sent&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;下面是我出问题的代码：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;ep.on(&lt;span class=&quot;string&quot;&gt;&#39;prop_err&#39;&lt;/span&gt;, &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(msg)&lt;/span&gt;&lt;/span&gt; {
+  res.status(&lt;span class=&quot;number&quot;&gt;422&lt;/span&gt;);
+  res.render(&lt;span class=&quot;string&quot;&gt;&#39;reg&#39;&lt;/span&gt;, {&lt;span class=&quot;built_in&quot;&gt;error&lt;/span&gt;: msg});
+});
+&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;(password_re != password){
+  ep.emit(&lt;span class=&quot;string&quot;&gt;&#39;prop_err&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;两次输入的密码不一致&#39;&lt;/span&gt;);
+  &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 这里的ep是&lt;code&gt;eventproxy&lt;/code&gt;模块，(&lt;a href=&quot;https://github.com/JacksonTian/eventproxy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/JacksonTian/eventproxy&lt;/a&gt;)，我写成了全局变量，ep添加了一个监听，第一次输错密码时，触发监听，调用&lt;code&gt;res.render&lt;/code&gt;，这个函数会将res直接变成finish状态。&lt;/p&gt;
+&lt;p&gt; 那么问题来了，我再一次输错密码时，又添加了同一个监听，触发监听时，会调用两次&lt;code&gt;res.render&lt;/code&gt;，这就导致了上面所说的问题了。&lt;/p&gt;
+&lt;h2 id=&quot;mongoose&quot;&gt;mongoose&lt;/h2&gt;&lt;p&gt;使用mongoose创建数据库模型时，需要设置一个名字，如’User’，但是mongoose会将名字自动转换为全小写以及复数形势，最终保存为’users’，当你在终端连接mongodb时只能找到users而没有User，其实users就是你代码写的User。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;之前有接触过一点点Node.js，但是也就写了点爬虫玩玩就没继续了，这周发现用VSCode写Node很爽，配置完以后非常想动手写点什么，偶然发现了一个开源的node&lt;a href=&quot;https://github.com/nswbmw/N-blog/wiki/第1章--一个简单的博客&quot;&gt;博客教程&lt;/a&gt;，于是这几天都在跟着写。不过教程里的各个模块的版本有点老，加上自己为了图方便有些东西比如数据库不想直接操作，视图模板也不想用&lt;code&gt;ejs&lt;/code&gt;，session不想直接存放在内存里打算用&lt;code&gt;redis&lt;/code&gt;，有很多东西就要自己摸索，遇到了很多的坑，也学到了很多新的东西，写一个笔记记录一下。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>使用visual studio code写node.js</title>

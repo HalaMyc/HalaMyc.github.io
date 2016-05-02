@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 一周node学习笔记 · HalaMyc</title><meta name="description" content="一周node学习笔记 - MouYacheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/author.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/author.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/About" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">一周node学习笔记</h1><div class="post-time">May 2, 2016</div><div class="post-content"><p>之前有接触过一点点Node.js，但是也就写了点爬虫玩玩就没继续了，这周发现用VSCode写Node很爽，配置完以后非常想动手写点什么，偶然发现了一个开源的node<a href="https://github.com/nswbmw/N-blog/wiki/第1章--一个简单的博客" target="_blank" rel="external">博客教程</a>，于是这几天都在跟着写。不过教程里的各个模块的版本有点老，加上自己为了图方便有些东西比如数据库不想直接操作，视图模板也不想用<code>ejs</code>，session不想直接存放在内存里打算用<code>redis</code>，有很多东西就要自己摸索，遇到了很多的坑，也学到了很多新的东西，写一个笔记记录一下。<br><a id="more"></a></p>
+<h2 id="Session问题">Session问题</h2><p>之前没有写过后台方面的东西，对session，cookie真的很难理解，仅仅是看看别人写的文章没办法搞懂。实战的时候结合别人的文章理解了一些。</p>
+<p>由于Http协议是一个无状态协议，客户端每次发出请求时，下一次请求无法得知上一次请求所包含的状态数据，比如在一个网站登录之后，点击另一个页面跳转后如何让服务端知道你已经登录了呢？</p>
+<h4 id="cookie">cookie</h4><p>cookie属于http协议的一部分，服务端负责发送cookie，浏览器负责保存cookie，每次发送请求时都是将cookie发送给服务器，这样服务器就能知道上一次请求的数据状态了。</p>
+<p>express4.x版本之后不再直接包含cookie，操作 cookie 需要使用 <code>cookie-parser</code>模块。</p>
+<h4 id="session">session</h4><p>cookie 虽然很方便，但是使用 cookie 有一个很大的弊端，cookie 中的所有数据在客户端就可以被修改，数据非常容易被伪造，那么一些重要的数据就不能存放在 cookie 中了，而且如果 cookie 中数据字段太多会影响传输效率。为了解决这些问题，就产生了 session，session 中的数据是保留在服务器端的。</p>
+<p>session其实就相当于一个特殊的容器，用于在服务器端保存数据。服务器端保存数据后会在cookie中设置一个sessionid，之后的每次请求服务器端通过检查cookie中的sessionid与seesion data关联，进行数据的保存和修改。</p>
+<p>session可以存放在内存，cookie，redis缓存或者数据库中，redis比较推荐。</p>
+<h4 id="保持登录">保持登录</h4><p>session_id 在 cookie 中的存储方式是 session cookie。即，当用户一关闭浏览器，浏览器 cookie 中的 session_id 字段就会消失。所以用户登录之后关闭了浏览器后，下次进入网站服务端还是不知道用户是谁，所以我们需要在cookie 中，也保存一份关于用户身份的信息。</p>
+<p>使用<code>signedCookies</code>保存某一用户数据，如用户名，服务端通过用户名获取到用户数据。<code>signedCookies</code>：给数据签名并保存在cookie中，比较安全。</p>
+<h2 id="response_header问题">response header问题</h2><p>写用户登录注册的过程中遇到一个问题，<code>Can&#39;t set headers after they are sent</code></p>
+<p>这个问题是因为在Express中(其他语言或框架我不知道),你可以随便调用<code>res.setHeader</code>，直到调用<code>res.writeHead</code>，调用了<code>writeHead</code>之后调用<code>write</code>，最终调用<code>end</code>。res进入完成状态。</p>
+<p>res进入完成状态后就不能再改了，如果视图修改<code>header</code>或其他，就会出现<code>Can&#39;t set headers after they are sent</code>。</p>
+<p>下面是我出问题的代码：</p>
+<pre><code>ep.on(<span class="string">'prop_err'</span>, <span class="function"><span class="keyword">function</span><span class="params">(msg)</span></span> {
+  res.status(<span class="number">422</span>);
+  res.render(<span class="string">'reg'</span>, {<span class="built_in">error</span>: msg});
+});
+<span class="keyword">if</span>(password_re != password){
+  ep.emit(<span class="string">'prop_err'</span>, <span class="string">'两次输入的密码不一致'</span>);
+  <span class="keyword">return</span>;
+}
+</code></pre><p> 这里的ep是<code>eventproxy</code>模块，(<a href="https://github.com/JacksonTian/eventproxy" target="_blank" rel="external">https://github.com/JacksonTian/eventproxy</a>)，我写成了全局变量，ep添加了一个监听，第一次输错密码时，触发监听，调用<code>res.render</code>，这个函数会将res直接变成finish状态。</p>
+<p> 那么问题来了，我再一次输错密码时，又添加了同一个监听，触发监听时，会调用两次<code>res.render</code>，这就导致了上面所说的问题了。</p>
+<h2 id="mongoose">mongoose</h2><p>使用mongoose创建数据库模型时，需要设置一个名字，如’User’，但是mongoose会将名字自动转换为全小写以及复数形势，最终保存为’users’，当你在终端连接mongodb时只能找到users而没有User，其实users就是你代码写的User。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/04/23/使用visual-studio-code写node-js/" class="next">NEXT</a></div><div data-thread-key="2016/05/02/一周node学习笔记/" data-title="一周node学习笔记" data-url="http://www.halamyc.me/2016/05/02/一周node学习笔记/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"HalaMyc"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2015 - 2016 <a href="http://www.halamyc.me">MouYacheng</a>, unless otherwise noted.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>
