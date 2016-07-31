@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> SDWebImage源码解读 · HalaMyc</title><meta name="description" content="SDWebImage源码解读 - MouYacheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/author.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><div id="mask" style="display: none;"><img id="mask-image" src="#" style=" "></div><div class="wrap"><header><a href="/" class="logo-link"><img src="/author.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="/About" target="_self" class="nav-list-link">ABOUT</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">SDWebImage源码解读</h1><div class="post-time">Jul 30, 2016</div><div class="post-content"><p>最近开始闭关修炼，阅读了一下<a href="https://github.com/rs/SDWebImage" target="_blank" rel="external">SDWebImage</a>的源码，在此做一下记录。<br><a id="more"></a><br>对于使用<code>SDWebImage</code>的人来说，用的最多的方法应该就是<code>UImage+WebCache</code>中的</p>
+<pre><code><span class="pp">- <span class="params">(void)</span>sd_setImageWithURL:<span class="params">(<span class="variable">NSURL</span> *)</span>url</span>
+</code></pre><p>以及其衍生的方法，所以我就从这个方法开始阅读。</p>
+<p>在.m文件中cmd+左键一句句定位实现方法，最终定位在</p>
+<pre><code><span class="pp">- <span class="params">(void)</span>sd_setImageWithURL:<span class="params">(<span class="variable">NSURL</span> *)</span>url placeholderImage:<span class="params">(<span class="variable">UIImage</span> *)</span>placeholder options:<span class="params">(<span class="variable">SDWebImageOptions</span>)</span>options progress:<span class="params">(<span class="variable">SDWebImageDownloaderProgressBlock</span>)</span>progressBlock completed:<span class="params">(<span class="variable">SDWebImageCompletionBlock</span>)</span>completedBlock</span>
+</code></pre><p>具体代码就不贴了，有兴趣的可以自己下下来看看。</p>
+<p>这个方法的实现第一句就比较有意思</p>
+<pre><code><span class="title">[self sd_cancelCurrentImageLoad]</span><span class="comment">;</span>
+</code></pre><p>看字面意思就知道是取消当前图片加载的意思，具体实现是在另一个文件<code>UIView+WebCacheOperation</code>中。</p>
+<h4 id="UIView+WebCacheOperation">UIView+WebCacheOperation</h4><p>这个文件代码很少，但是很有意思，一些细节让我研究了很久弄懂了不少东西。</p>
+<pre><code>- <span class="list">(<span class="keyword">NSMutableDictionary</span> <span class="variable">*)operationDictionary {
+NSMutableDictionary *</span>operations = objc_getAssociatedObject<span class="list">(<span class="keyword">self</span>, <span class="keyword">&amp;loadOperationKey</span>)</span><span class="comment">;</span>
+if <span class="list">(<span class="keyword">operations</span>)</span> {
+    return operations<span class="comment">;</span>
+}
+operations = [NSMutableDictionary dictionary]<span class="comment">;</span>
+objc_setAssociatedObject<span class="list">(<span class="keyword">self</span>, <span class="keyword">&amp;loadOperationKey</span>, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC)</span><span class="comment">;</span>
+return operations<span class="comment">;</span>
+}
+
+- <span class="list">(<span class="keyword">void</span>)</span>sd_setImageLoadOperation:<span class="list">(<span class="keyword">id</span>)</span>operation forKey:<span class="list">(<span class="keyword">NSString</span> <span class="variable">*)key {
+[self sd_cancelImageLoadOperationWithKey:key];
+NSMutableDictionary *</span>operationDictionary = [self operationDictionary]<span class="comment">;</span>
+[operationDictionary setObject<span class="keyword">:operation</span> forKey<span class="keyword">:key</span>]<span class="comment">;</span>
+}
+
+- <span class="list">(<span class="keyword">void</span>)</span>sd_cancelImageLoadOperationWithKey:<span class="list">(<span class="keyword">NSString</span> <span class="variable">*)key {
+// Cancel in progress downloader from queue
+NSMutableDictionary *</span>operationDictionary = [self operationDictionary]<span class="comment">;</span>
+id operations = [operationDictionary objectForKey<span class="keyword">:key</span>]<span class="comment">;</span>
+if <span class="list">(<span class="keyword">operations</span>)</span> {
+    if <span class="list">([operations isKindOfClass:[NSArray class]])</span> {
+        for <span class="list">(<span class="keyword">id</span> &lt;SDWebImageOperation&gt; operation in operations)</span> {
+            if <span class="list">(<span class="keyword">operation</span>)</span> {
+                [operation cancel]<span class="comment">;</span>
+            }
+        }
+    } else if <span class="list">([operations conformsToProtocol:@protocol<span class="list">(<span class="keyword">SDWebImageOperation</span>)</span>])</span>{
+        [<span class="list">(<span class="keyword">id&lt;SDWebImageOperation&gt;</span>)</span> operations cancel]<span class="comment">;</span>
+    }
+    [operationDictionary removeObjectForKey<span class="keyword">:key</span>]<span class="comment">;</span>
+}
+}
+
+- <span class="list">(<span class="keyword">void</span>)</span>sd_removeImageLoadOperationWithKey:<span class="list">(<span class="keyword">NSString</span> <span class="variable">*)key {
+NSMutableDictionary *</span>operationDictionary = [self operationDictionary]<span class="comment">;</span>
+[operationDictionary removeObjectForKey<span class="keyword">:key</span>]<span class="comment">;</span>
+}</span></span></span></span>
+</code></pre><p>很明显这里通过runtime给分类绑定了一个可变字典的属性，这个字典存放了的是operation。也就是说这个对象对应的下载操作由一个字典来管理，每次操作返回一个operation都会被添加进这个字典，如果再次下载图片，首先会取消并删除掉之前的操作。</p>
+<p>通过<code>objc_getAssociatedObject</code>和<code>objc_setAssociatedObject</code>可以动态给分类绑定属性，分类不能直接设置属性，是因为在编译完成之后类的属性列表的排列就固定了，而分类是在运行时加载的，运行时添加属性将会crash。而这两个运行时方法能添加属性并不是通过在类中添加属性，而是有一个<code>AssociateManager</code>负责管理属性的绑定。<code>AssociateManager</code>管理了一个哈希表<code>AssociationsHashMap</code>，负责维护对象到另一个表<code>ObjectAssociationMap</code>，这个表负责维护属性与key。相关链接看<a href="http://blog.leichunfeng.com/blog/2015/06/26/objective-c-associated-objects-implementation-principle/" target="_blank" rel="external">这里</a></p>
+<p>通过绑定一个字典形成了对象与字典的一一对应，子所以写是UIView的分类中大概是因为还有个UIButton+WebCache需要用到，所以写在一个共同的父类的分类中。</p>
+<p>但是有个问题我无法理解，类和属性的绑定策略是选择了<code>OBJC_ASSOCIATION_RETAIN_NONATOMIC</code>，也就相当于@property中的<code>strong+nonatomic</code>，也就是说对象对operation强引用，这样的话只要UIImage没被释放，对应operation就无法释放，图片越多，operation也就越多，挖个坑，有空测试一下。未完待续。。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/05/02/一周node学习笔记/" class="next">下一篇</a></div><div data-thread-key="2016/07/30/SDWebImage源码解读/" data-title="SDWebImage源码解读" data-url="http://www.halamyc.me/2016/07/30/SDWebImage源码解读/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"HalaMyc"};
+(function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+})();
+
+</script><div class="copyright"><p>© 2015 - 2016 <a href="http://www.halamyc.me">MouYacheng</a>, unless otherwise noted.</p></div></footer></div><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script><script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script></body></html>

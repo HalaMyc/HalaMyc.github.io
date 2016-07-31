@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.halamyc.me/"/>
-  <updated>2016-05-02T03:58:29.000Z</updated>
+  <updated>2016-07-31T02:54:48.000Z</updated>
   <id>http://www.halamyc.me/</id>
   
   <author>
@@ -14,6 +14,76 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SDWebImage源码解读</title>
+    <link href="http://www.halamyc.me/2016/07/30/SDWebImage%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB/"/>
+    <id>http://www.halamyc.me/2016/07/30/SDWebImage源码解读/</id>
+    <published>2016-07-30T13:32:27.000Z</published>
+    <updated>2016-07-31T02:54:48.000Z</updated>
+    
+    <content type="html">&lt;p&gt;最近开始闭关修炼，阅读了一下&lt;a href=&quot;https://github.com/rs/SDWebImage&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SDWebImage&lt;/a&gt;的源码，在此做一下记录。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;对于使用&lt;code&gt;SDWebImage&lt;/code&gt;的人来说，用的最多的方法应该就是&lt;code&gt;UImage+WebCache&lt;/code&gt;中的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;pp&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;sd_setImageWithURL:&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;NSURL&lt;/span&gt; *)&lt;/span&gt;url&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;以及其衍生的方法，所以我就从这个方法开始阅读。&lt;/p&gt;
+&lt;p&gt;在.m文件中cmd+左键一句句定位实现方法，最终定位在&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;pp&quot;&gt;- &lt;span class=&quot;params&quot;&gt;(void)&lt;/span&gt;sd_setImageWithURL:&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;NSURL&lt;/span&gt; *)&lt;/span&gt;url placeholderImage:&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;UIImage&lt;/span&gt; *)&lt;/span&gt;placeholder options:&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;SDWebImageOptions&lt;/span&gt;)&lt;/span&gt;options progress:&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;SDWebImageDownloaderProgressBlock&lt;/span&gt;)&lt;/span&gt;progressBlock completed:&lt;span class=&quot;params&quot;&gt;(&lt;span class=&quot;variable&quot;&gt;SDWebImageCompletionBlock&lt;/span&gt;)&lt;/span&gt;completedBlock&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;具体代码就不贴了，有兴趣的可以自己下下来看看。&lt;/p&gt;
+&lt;p&gt;这个方法的实现第一句就比较有意思&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;span class=&quot;title&quot;&gt;[self sd_cancelCurrentImageLoad]&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;看字面意思就知道是取消当前图片加载的意思，具体实现是在另一个文件&lt;code&gt;UIView+WebCacheOperation&lt;/code&gt;中。&lt;/p&gt;
+&lt;h4 id=&quot;UIView+WebCacheOperation&quot;&gt;UIView+WebCacheOperation&lt;/h4&gt;&lt;p&gt;这个文件代码很少，但是很有意思，一些细节让我研究了很久弄懂了不少东西。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;NSMutableDictionary&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;*)operationDictionary {
+NSMutableDictionary *&lt;/span&gt;operations = objc_getAssociatedObject&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;&amp;amp;loadOperationKey&lt;/span&gt;)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+if &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;operations&lt;/span&gt;)&lt;/span&gt; {
+    return operations&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+}
+operations = [NSMutableDictionary dictionary]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+objc_setAssociatedObject&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;&amp;amp;loadOperationKey&lt;/span&gt;, operations, OBJC_ASSOCIATION_RETAIN_NONATOMIC)&lt;/span&gt;&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+return operations&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+}
+
+- &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)&lt;/span&gt;sd_setImageLoadOperation:&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)&lt;/span&gt;operation forKey:&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;*)key {
+[self sd_cancelImageLoadOperationWithKey:key];
+NSMutableDictionary *&lt;/span&gt;operationDictionary = [self operationDictionary]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+[operationDictionary setObject&lt;span class=&quot;keyword&quot;&gt;:operation&lt;/span&gt; forKey&lt;span class=&quot;keyword&quot;&gt;:key&lt;/span&gt;]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+}
+
+- &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)&lt;/span&gt;sd_cancelImageLoadOperationWithKey:&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;*)key {
+// Cancel in progress downloader from queue
+NSMutableDictionary *&lt;/span&gt;operationDictionary = [self operationDictionary]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+id operations = [operationDictionary objectForKey&lt;span class=&quot;keyword&quot;&gt;:key&lt;/span&gt;]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+if &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;operations&lt;/span&gt;)&lt;/span&gt; {
+    if &lt;span class=&quot;list&quot;&gt;([operations isKindOfClass:[NSArray class]])&lt;/span&gt; {
+        for &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt; &amp;lt;SDWebImageOperation&amp;gt; operation in operations)&lt;/span&gt; {
+            if &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;operation&lt;/span&gt;)&lt;/span&gt; {
+                [operation cancel]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+            }
+        }
+    } else if &lt;span class=&quot;list&quot;&gt;([operations conformsToProtocol:@protocol&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;SDWebImageOperation&lt;/span&gt;)&lt;/span&gt;])&lt;/span&gt;{
+        [&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;id&amp;lt;SDWebImageOperation&amp;gt;&lt;/span&gt;)&lt;/span&gt; operations cancel]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+    }
+    [operationDictionary removeObjectForKey&lt;span class=&quot;keyword&quot;&gt;:key&lt;/span&gt;]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+}
+}
+
+- &lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)&lt;/span&gt;sd_removeImageLoadOperationWithKey:&lt;span class=&quot;list&quot;&gt;(&lt;span class=&quot;keyword&quot;&gt;NSString&lt;/span&gt; &lt;span class=&quot;variable&quot;&gt;*)key {
+NSMutableDictionary *&lt;/span&gt;operationDictionary = [self operationDictionary]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+[operationDictionary removeObjectForKey&lt;span class=&quot;keyword&quot;&gt;:key&lt;/span&gt;]&lt;span class=&quot;comment&quot;&gt;;&lt;/span&gt;
+}&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;很明显这里通过runtime给分类绑定了一个可变字典的属性，这个字典存放了的是operation。也就是说这个对象对应的下载操作由一个字典来管理，每次操作返回一个operation都会被添加进这个字典，如果再次下载图片，首先会取消并删除掉之前的操作。&lt;/p&gt;
+&lt;p&gt;通过&lt;code&gt;objc_getAssociatedObject&lt;/code&gt;和&lt;code&gt;objc_setAssociatedObject&lt;/code&gt;可以动态给分类绑定属性，分类不能直接设置属性，是因为在编译完成之后类的属性列表的排列就固定了，而分类是在运行时加载的，运行时添加属性将会crash。而这两个运行时方法能添加属性并不是通过在类中添加属性，而是有一个&lt;code&gt;AssociateManager&lt;/code&gt;负责管理属性的绑定。&lt;code&gt;AssociateManager&lt;/code&gt;管理了一个哈希表&lt;code&gt;AssociationsHashMap&lt;/code&gt;，负责维护对象到另一个表&lt;code&gt;ObjectAssociationMap&lt;/code&gt;，这个表负责维护属性与key。相关链接看&lt;a href=&quot;http://blog.leichunfeng.com/blog/2015/06/26/objective-c-associated-objects-implementation-principle/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;通过绑定一个字典形成了对象与字典的一一对应，子所以写是UIView的分类中大概是因为还有个UIButton+WebCache需要用到，所以写在一个共同的父类的分类中。&lt;/p&gt;
+&lt;p&gt;但是有个问题我无法理解，类和属性的绑定策略是选择了&lt;code&gt;OBJC_ASSOCIATION_RETAIN_NONATOMIC&lt;/code&gt;，也就相当于@property中的&lt;code&gt;strong+nonatomic&lt;/code&gt;，也就是说对象对operation强引用，这样的话只要UIImage没被释放，对应operation就无法释放，图片越多，operation也就越多，挖个坑，有空测试一下。未完待续。。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近开始闭关修炼，阅读了一下&lt;a href=&quot;https://github.com/rs/SDWebImage&quot;&gt;SDWebImage&lt;/a&gt;的源码，在此做一下记录。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>一周node学习笔记</title>

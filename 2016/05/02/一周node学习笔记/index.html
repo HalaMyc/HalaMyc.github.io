@@ -23,7 +23,7 @@
 </code></pre><p> 这里的ep是<code>eventproxy</code>模块，(<a href="https://github.com/JacksonTian/eventproxy" target="_blank" rel="external">https://github.com/JacksonTian/eventproxy</a>)，我写成了全局变量，ep添加了一个监听，第一次输错密码时，触发监听，调用<code>res.render</code>，这个函数会将res直接变成finish状态。</p>
 <p> 那么问题来了，我再一次输错密码时，又添加了同一个监听，触发监听时，会调用两次<code>res.render</code>，这就导致了上面所说的问题了。</p>
 <h2 id="mongoose">mongoose</h2><p>使用mongoose创建数据库模型时，需要设置一个名字，如’User’，但是mongoose会将名字自动转换为全小写以及复数形势，最终保存为’users’，当你在终端连接mongodb时只能找到users而没有User，其实users就是你代码写的User。</p>
-</div></article></div></section><footer><div class="paginator"><a href="/2016/04/23/使用visual-studio-code写node-js/" class="next">下一篇</a></div><div data-thread-key="2016/05/02/一周node学习笔记/" data-title="一周node学习笔记" data-url="http://www.halamyc.me/2016/05/02/一周node学习笔记/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"HalaMyc"};
+</div></article></div></section><footer><div class="paginator"><a href="/2016/07/30/SDWebImage源码解读/" class="prev">上一篇</a><a href="/2016/04/23/使用visual-studio-code写node-js/" class="next">下一篇</a></div><div data-thread-key="2016/05/02/一周node学习笔记/" data-title="一周node学习笔记" data-url="http://www.halamyc.me/2016/05/02/一周node学习笔记/" data-author-key="1" class="ds-thread"></div><script>var duoshuoQuery = {short_name:"HalaMyc"};
 (function() {
     var ds = document.createElement('script');
     ds.type = 'text/javascript';ds.async = true;
